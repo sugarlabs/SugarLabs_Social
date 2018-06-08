@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Hello_world import views as hello_world_views
+from core import views as core_views
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', hello_world_views.index, name = 'home'),
+    url(r'^$', core_views.index, name = 'home'),
 ]
