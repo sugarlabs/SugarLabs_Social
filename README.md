@@ -77,7 +77,7 @@ you should see (env) in the begining, something like this.
 
 
 ```
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 ```
 ```
 $ cd Project_DIR
