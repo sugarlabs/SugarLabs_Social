@@ -76,25 +76,18 @@ WSGI_APPLICATION = 'Project_SLS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sls_db',
-        # 'USER': 'avinash',
-        # 'HOST': 'localhost',
-        # 'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-# AUTHENTICATION_BACKENDS = (
-#     'mongoengine.django.auth.MongoEngineBackend',
-# )
-#
-# SESSION_ENGINE = 'mongoengine.django.sessions'
-#
-# MONGO_DATABASE_NAME = 'dummy_db'
-#
-# from mongoengine import connect
-# connect(MONGO_DATABASE_NAME)
-
+#Password hashers 'Bcrypt is used for password hashing'
+PASSWORD_HASHERS = [
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+        'django.contrib.auth.hashers.BCryptPasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
