@@ -76,11 +76,24 @@ WSGI_APPLICATION = 'Project_SLS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sls_db',
+        # 'USER': 'avinash',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
     }
 }
 
+# AUTHENTICATION_BACKENDS = (
+#     'mongoengine.django.auth.MongoEngineBackend',
+# )
+#
+# SESSION_ENGINE = 'mongoengine.django.sessions'
+#
+# MONGO_DATABASE_NAME = 'dummy_db'
+#
+# from mongoengine import connect
+# connect(MONGO_DATABASE_NAME)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
