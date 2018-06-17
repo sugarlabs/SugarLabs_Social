@@ -42,7 +42,7 @@ def register(request):
         else:
             #Invalid form - mistaken something?
             #lets Print the problem
-            print user_form.errors
+            print(user_form.errors)
     else:
         #Not a HTTP POST? render the form again :D
         user_form = UserForm()

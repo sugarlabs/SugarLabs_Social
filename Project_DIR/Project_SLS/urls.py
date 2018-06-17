@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from core import views
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('core.urls')),
+    url(r'^register/$',
+        views.register,
+        name = 'register'),
 ]
 
 #Add Django site authentication urls (for login,logout, password management)
