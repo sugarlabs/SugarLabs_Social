@@ -17,6 +17,8 @@ def index(request):
 
 
 #Auth views
+
+#registration view
 def register(request):
     #A boolean value is added to tell the template
     #whether the registration was successful
@@ -55,3 +57,34 @@ def register(request):
                 'user_form':user_form,
                 'registered':registered
                 })
+
+
+#login views
+def user_login(request):
+    # if the request is a HTTP POST,
+    #trying to pull the relevent information
+    if request.method == 'POST':
+        #gather the username and Password
+        #here request.POST.get('<variable>')
+        #is used instead of request.POST.('<variable>')
+        #beacuse later raise a KeyError exception.
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        #checking if the combination of
+        #username and password is valid or not
+        user = authenticate(username = username, password = password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+
+            else:
+                return HttpResponse("Your account is disabled")
+
+        else:
+            print('Invalid login details: {0}, {1}').format(username, password)
+            return HttpResponse('Invalid login details supplied.')
+    else:
+        return render(request, 'login.html',{})
