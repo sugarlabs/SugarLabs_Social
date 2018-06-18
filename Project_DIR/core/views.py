@@ -81,7 +81,9 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                # return HttpResponseRedirect(reverse('index'))
+
+                return HttpResponseRedirect(reverse('feed'))
 
             else:
                 return HttpResponse("Your account is disabled")
@@ -98,3 +100,10 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+#feed view to check the login functionality
+@login_required
+def feed(request):
+    username = request.user.username
+    context_dict={'username':username}
+    return render(request, 'feed.html', context_dict)
