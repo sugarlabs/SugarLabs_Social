@@ -25,6 +25,7 @@
 body{
   background-color: #262626;
   color:white;
+  overflow-x: hidden;
 }
 
 .navbar{
@@ -38,7 +39,7 @@ body{
 
 .main-sec-left{
   font-family: 'Raleway', sans-serif;
-  font-size:3rem;
+  font-size:4rem;
   font-weight:300;
   margin-top:20vh;
   color:#f8f9fa;
@@ -51,4 +52,16 @@ body{
 .vl {
     border-left: 2px solid #f8f9fa;
     height: 50px;
+}
+.xo-logo{
+  width:40vw;
+  height:40vw;
+  margin-top:10vh;
+}
+
+/* for smaller devices width less than 768px */
+@media only screen and (max-width: 768px) {
+    .xo-logo{
+      visibility: hidden;
+    }
 }
