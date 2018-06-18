@@ -11,6 +11,10 @@
       {% csrf_token %}
       <!-- Display each form -->
       {{ user_form.as_p }}
+      {% if registered %}
+        successfully registered
+        <a href="/login/">login</a>
+      {% endif %}
       <!-- Provide a button to click to submit the form. -->
       <input type="submit" name="submit" value="Register" />
       </form>
