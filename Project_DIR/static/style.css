@@ -4,7 +4,9 @@
   --Roboto
   --Monteserrat
   --Raleway
-  How to import?
+
+
+  ******How to import?*******
 
 
     font-family: 'Raleway', sans-serif;
@@ -23,4 +25,13 @@
 body{
   background-color: #262626;
   color:white;
+}
+
+.navbar{
+  font-family: 'Montserrat', sans-serif;
+  color:white;
+}
+
+.btn-nav{
+  border-radius:0%;
 }
