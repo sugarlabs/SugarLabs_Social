@@ -1,4 +1,26 @@
+/* Fonts are :
+  --Lato
+  --Roboto Condensed
+  --Roboto
+  --Monteserrat
+  --Raleway
+  How to import?
+
+
+    font-family: 'Raleway', sans-serif;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-family: 'Roboto Condensed', sans-serif;
+
+    font-family: 'Lato', sans-serif;
+
+*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway:300,400|Roboto|Roboto+Condensed');
+
 body{
-  background-color: #fff;
+  background-color: #262626;
   color:white;
 }
