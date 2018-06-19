@@ -1,26 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-  <!DOCTYPE html>
-  <html lang="en" dir="ltr">
-    <head>
-      <meta charset="utf-8">
-      <title></title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-      <script>{% load static %}</script>
-      <link rel="stylesheet" href="{% get_static_prefix %}style.css">
-    </head>
-    <body>
-      <form id="user_form" method="post" action=""
-      enctype="multipart/form-data">
-      {% csrf_token %}
-      <!-- Display each form -->
-      {{ user_form.as_p }}
-      {% if registered %}
-        successfully registered
-        <a href="/login/">login</a>
-      {% endif %}
-      <!-- Provide a button to click to submit the form. -->
-      <input type="submit" name="submit" value="Register" />
-      </form>
 
-    </body>
-  </html>
+  {% block content %}
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-12 col-md-6 regi-right">
+            <form id="user_form" method="post" action=""
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Display each form -->
+            {{ user_form|crispy }}
+            {% if registered %}
+              successfully registered
+              <a href="/login/">login</a>
+            {% endif %}
+            <!-- Provide a button to click to submit the form. -->
+            <!-- <input type="submit" name="submit" value="Register" /> -->
+            <input class="btn btn-outline-dark my-2 my-sm-0 btn-nav" type="submit" name="submit" value="Register"/>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {% endblock %}
