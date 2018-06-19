@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form id = 'login_form' method = 'post', action = ''>
-      {% csrf_token %}
-      Username: <input type="text" name="username" value="" size="50"/>
-      <br />
-      Password: <input type="password" name="password" value="" size="50"/>
-      <br />
-      <input type="submit" value="submit"/>
-    </form>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+  {% block content %}
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-12 col-md-6 regi-right">
+
+          <span style="font-family: 'Montserrat', sans-serif">Login here!<span>
+
+        <hr>
+        <form id = 'login_form' method = 'post', action = ''>
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" value="" size="50" placeholder='Enter Username'/>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" value="" size="50" placeholder='Enter Password'/>
+          </div>
+          <input class="btn btn-outline-dark my-2 my-sm-0 btn-nav" type="submit" name="submit" value="submit"/>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

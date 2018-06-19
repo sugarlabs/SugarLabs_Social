@@ -6,15 +6,19 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-sm-12 col-md-6 regi-right">
+            {% if registered %}
+              successfully registered
+              <a class="btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/login/" role="button" style="margin-left:30px">Login</a>
+            {% else %}
+              <span style="font-family: 'Montserrat', sans-serif">Register here!<span>
+            {% endif %}
+            <hr>
             <form id="user_form" method="post" action=""
             enctype="multipart/form-data">
             {% csrf_token %}
             <!-- Display each form -->
             {{ user_form|crispy }}
-            {% if registered %}
-              successfully registered
-              <a href="/login/">login</a>
-            {% endif %}
+
             <!-- Provide a button to click to submit the form. -->
             <!-- <input type="submit" name="submit" value="Register" /> -->
             <input class="btn btn-outline-dark my-2 my-sm-0 btn-nav" type="submit" name="submit" value="Register"/>
