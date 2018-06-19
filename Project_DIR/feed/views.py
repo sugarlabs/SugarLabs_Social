@@ -10,4 +10,4 @@ from django.contrib.auth.decorators import login_required
 def feed(request):
     username = request.user.username
     context_dict={'username':username}
-    return render(request, 'feed.html', context_dict)
+    return render(request, 'core/feed.html', context_dict)
