@@ -31,56 +31,37 @@ body{
 .navbar{
   font-family: 'Montserrat', sans-serif;
   background-color:white !important;
+  border: 1px solid rgba(0,0,0,.15) !important;
+  border-top:none !important;
+  border-left:none !important;
+  border-right:none !important;
+}
+
+.dropdown-menu{
+  border-radius:0px !important;
 }
 
 .btn-nav{
   border-radius:0%;
 }
 
-.main-sec-left{
-  font-family: 'Raleway', sans-serif;
-  font-size:4rem;
-  font-weight:300;
-  margin-top:20vh;
-  color:#f8f9fa;
-}
-.main-text-2{
-  font-family: 'Lato', sans-serif;
-  font-size:15px;
-  margin:15px;
-}
-.vl {
-    border-left: 2px solid #f8f9fa;
-    height: 50px;
-}
-.xo-logo{
-  width:40vw;
-  height:40vw;
-  margin-top:10vh;
-}
-
-/*register.html */
-.regi-right{
-  background-color:#f8f9fa;
-  color:#262626;
-  margin-top:10vh;
-  margin-bottom:10vh;
-  padding:50px;
-  border-style: solid;
-  border-width:5px;
-  border-left:none;
-  border-right:none;
-  -webkit-border-image:
-    -webkit-linear-gradient(to right, #fc6076 0%, #ff9a44 100%);
-  border-image:
-    linear-gradient(to right, #fc6076 0%, #ff9a44 100%);
-  border-image-slice: 1;
+.left-nav{
+  height:100vh;
+  position: fixed;
+  background-color:white;
+  border: 1px solid rgba(0,0,0,.15) !important;
+  border-top:none !important;
+  border-left:none !important;
 
 }
 
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {
     .xo-logo{
+      visibility: hidden;
+    }
+
+    .left-nav{
       visibility: hidden;
     }
 }
