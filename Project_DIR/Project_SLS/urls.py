@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from core import views
+from core import views as core_views
+from feed import views as feed_views
 
 admin.autodiscover()
 
@@ -23,14 +24,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('core.urls')),
     url(r'^register/$',
-        views.register,
+        core_views.register,
         name = 'register'),
-    url(r'^login/$', views.user_login, name='login'),
-    url(r'^logout/$', views.user_logout, name='logout'),
-    url(r'^feed/$', views.feed, name='feed'),
-]
+    url(r'^login/$', core_views.user_login, name='login'),
+    url(r'^logout/$', core_views.user_logout, name='logout'),
+    url(r'^feed/$', include('feed.urls')),
 
-#Add Django site authentication urls (for login,logout, password management)
-# urlpatterns += [
-#     path('accounts/', include('django.contrib.auth.urls')),
-# ]
+]

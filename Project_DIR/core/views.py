@@ -1,10 +1,11 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import Context, loader
 from core.forms import UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from feed import views
 
 
 # from core.models import Post
@@ -83,7 +84,7 @@ def user_login(request):
                 login(request, user)
                 # return HttpResponseRedirect(reverse('index'))
 
-                return HttpResponseRedirect(reverse('feed'))
+                return redirect('/feed/')
 
             else:
                 return HttpResponse("Your account is disabled")
@@ -100,10 +101,3 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
-
-#feed view to check the login functionality
-@login_required
-def feed(request):
-    username = request.user.username
-    context_dict={'username':username}
-    return render(request, 'feed.html', context_dict)
