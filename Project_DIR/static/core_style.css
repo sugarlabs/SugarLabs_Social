@@ -67,6 +67,10 @@ body{
   -webkit-text-fill-color: transparent;
 }
 
+.modal-content{
+  border-radius:0 !important;
+}
+
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {
     .xo-logo{
