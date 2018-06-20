@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from core import views as core_views
 from feed import views as feed_views
+from post import views as post_views
 
 admin.autodiscover()
 
@@ -29,5 +30,6 @@ urlpatterns = [
     url(r'^login/$', core_views.user_login, name='login'),
     url(r'^logout/$', core_views.user_logout, name='logout'),
     url(r'^feed/$', include('feed.urls')),
+    url(r'^post/$', include('post.urls')),
 
 ]
