@@ -1,0 +1,8 @@
+{% extends 'core/core_base.html' %}
+{% block content %}
+  <li>{{single_post.created_at}} | {{single_post.title}} | {{single_post.content}} | {{single_post.author}} | {{single_post.tag}} |</li>
+  {% if single_post.image %}
+    <img src="/media/{{single_post.image}}" width="100px" height="100px">
+  {% endif %}
+
+{% endblock %}

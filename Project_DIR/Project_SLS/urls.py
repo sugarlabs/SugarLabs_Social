@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from .settings import MEDIA_ROOT
+from django.views.static import serve
 from core import views as core_views
 from feed import views as feed_views
 from post import views as post_views
@@ -23,13 +25,11 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
     url(r'^$', include('core.urls')),
-    url(r'^register/$',
-        core_views.register,
-        name = 'register'),
+    url(r'^register/$', core_views.register, name = 'register'),
     url(r'^login/$', core_views.user_login, name='login'),
     url(r'^logout/$', core_views.user_logout, name='logout'),
-    url(r'^feed/$', include('feed.urls')),
-    url(r'^post/$', include('post.urls')),
-
+    url(r'^feed/', include('feed.urls')),
+    url(r'^post/', include('post.urls')),
 ]
