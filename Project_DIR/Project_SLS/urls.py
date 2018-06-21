@@ -24,9 +24,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('core.urls')),
-    url(r'^register/$',
-        core_views.register,
-        name = 'register'),
+    url(r'^register/$', core_views.register, name = 'register'),
     url(r'^login/$', core_views.user_login, name='login'),
     url(r'^logout/$', core_views.user_logout, name='logout'),
     url(r'^feed/$', include('feed.urls')),

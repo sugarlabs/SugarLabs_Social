@@ -52,8 +52,8 @@ body{
 }
 
 .left-nav{
-  height:100vh;
-  position: fixed;
+  /* height:100vh; */
+  /* position: fixed; */
   background-color:white;
   border: 1px solid rgba(0,0,0,.15) !important;
   border-top:none !important;

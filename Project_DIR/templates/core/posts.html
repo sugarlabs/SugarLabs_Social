@@ -1,1 +1,6 @@
 {% extends 'core/core_base.html' %}
+{% block content %}
+{% for post in latest_posts %}
+  <li>{{post.created_at}} | {{post.title}} | {{post.content}} | {{post.author}}</li>
+{% endfor %}
+{% endblock %}
