@@ -26,26 +26,146 @@
           <a class="navbar-brand " href="/">SUGAR LABS SOCIAL</a>
 
           <div class="collapse navbar-collapse" id="navbarToggler" style="justify-content:right">
-            {% csrf_token %}
-            <i class="fas fa-user-circle" style="font-size:2rem; color:#262626"></i>
+
+            {% if user.is_authenticated %}
+              {% csrf_token %}
+                <i class="fas fa-user-circle" style="font-size:2rem; color:#262626"></i>
 
 
-            <div class="dropdown mr-2">
-              <a class="dropdown-toggle dropdown-toggle-split"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="my-2 my-sm-0 mx-2">{{username}}</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right mt-sm-3" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/logout/" role="button">Logout</a>
-              </div>
-            </div>
-
+                  <div class="dropdown mr-2">
+                    <a class="dropdown-toggle dropdown-toggle-split"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="my-2 my-sm-0 mx-2">{{username}}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right mt-sm-3" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/logout/" role="button">Logout</a>
+                    </div>
+                  </div>
+            {% else %}
+              <a class="btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/login/" role="button" style="margin-right:30px">Login</a>
+              <a class="btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/register/" role="button">Register</a>
+            {% endif %}
 
           </div>
 
         </nav>
     <!--navigation ends here-->
-    {% block content %}
-    {% endblock %}
+
+
+    <div class="container.fluid">
+      <div class="row">
+        <div class="col-md-2 left-nav hidden-xs">
+          <div class="container.fluid " style="height:100vh">
+            <div class="row ">
+              <div class="col-12">
+                <a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/post/add_post/" type="button">
+                  <i class="fas fa-plus my-2" style="font-size:1.5rem">
+                  </i>
+                  <span style="font-size:1rem;" class="mx-4">
+                    Add Post
+                  <span>
+                </a>
+                <hr>
+              </div>
+              <a href="/feed/">
+                <div class="col-12 my-2 left-nav-btn">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-4">
+                        <span><i class="far fa-newspaper mr-4" style="font-size:1rem;"></i></span>
+                      </div>
+                      <div class="col-8">
+                        <span>Feed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/post/">
+              <div class="col-12 left-nav-btn my-2">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <span><i class="fas fa-list mr-4" style="font-size:1rem;"></i></span>
+                    </div>
+                    <div class="col-8">
+                      <span>Posts</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+              <a href="/blog/">
+              <div class="col-12 left-nav-btn my-2">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <span><i class="fas fa-rss mr-4" style="font-size:1rem;"></i></span>
+                    </div>
+                    <div class="col-8">
+                      <span>Blog</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+
+              <a href="/projects/">
+              <div class="col-12 left-nav-btn my-2" href="/feed/">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <span><i class="fas fa-cogs mr-4" style="font-size:1rem;"></i></span>
+                    </div>
+                    <div class="col-8">
+                      <span>Projects</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-10 col-md-10">
+
+                {% block content %}
+                {% endblock %}
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--modal post form-->
+    <!-- <div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="post_form" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="post_form">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {% load crispy_forms_tags %}
+
+
+            <form id="post_form" method="post" action="/post/add_post/" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <input type="submit" name="submit" value="Create Post">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
     <!-- Optional JavaScript -->
     <script src="{% get_static_prefix %}script.js"></script>

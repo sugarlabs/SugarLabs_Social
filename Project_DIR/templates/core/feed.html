@@ -1,23 +1,41 @@
 {% extends 'core/core_base.html' %}
-
 {% block content %}
+
+
   <div class="container.fluid">
     <div class="row">
-      <div class="col-sm-2 left-nav">
+      <div class="col-12 col-sm-7">
         <div class="container.fluid">
-          <div class="col-12">
-            <a class="btn btn-outline-dark my-4 btn-nav btn-add-left-nav" href="#post_form" role="button">
-              <i class="fas fa-plus my-2" style="font-size:1.5rem">
-              </i>
-              <span style="font-size:1rem;" class="mx-4">
-                Add Post
-              <span>
-            </a>
+          <div class="row justify-content-center">
+            {% for post in latest_posts %}
+            <div class="col-8">
+              <div class="card feed_post_card my-2">
+
+                  {% if post.author %}
+                    <h5 class="card-title">{{post.author}}</h5>
+
+                  {% else %}
+                    <h5 class="card-title">Anonymous</h5>
+                  {% endif %}
+                  <p class="card-subtitle mb-2 text-muted">{{post.created_at}}</p>
+
+                {% if post.image %}
+                <img class="card-img-top" src="/media/{{post.image}}">
+                {% endif %}
+                <!-- <a href="/post/{{ post.url }}">{{post.title}}</a> -->
+                  <p class="card-text">{{post.content}}</p>
+              </div>
+            </div>
+
+            {% endfor %}
           </div>
-          <hr>
         </div>
       </div>
+
+
     </div>
   </div>
+
+
 
 {% endblock %}
