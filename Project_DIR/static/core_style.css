@@ -29,6 +29,12 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+.add{
+  background-color:white !important;
+  padding:30px;
+  margin-top:10vh;
+}
+
 .navbar{
   font-family: 'Montserrat', sans-serif;
   background-color:white !important;
@@ -69,6 +75,8 @@ body{
 .modal-content{
   border-radius:0 !important;
 }
+
+
 
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {

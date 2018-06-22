@@ -8,7 +8,6 @@ from .forms import PostForm
 
 
 
-@login_required
 def post(request):
     username = request.user.username
     latest_posts = Post.objects.all().order_by('-created_at')
@@ -37,7 +36,9 @@ def post_detail(request, post_url):
     return render(request, 'core/post.html', context_dict)
 
 
+@login_required
 def add_post(request):
+    username = request.user.username
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -48,7 +49,7 @@ def add_post(request):
     else:
         form = PostForm()
 
-    return render(request, 'core/add_post.html', {'form':form})
+    return render(request, 'core/add_post.html', {'form':form, 'username':username,})
 #
 #
 # def post_delete(request):

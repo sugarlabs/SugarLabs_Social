@@ -26,19 +26,24 @@
           <a class="navbar-brand " href="/">SUGAR LABS SOCIAL</a>
 
           <div class="collapse navbar-collapse" id="navbarToggler" style="justify-content:right">
-            {% csrf_token %}
-            <i class="fas fa-user-circle" style="font-size:2rem; color:#262626"></i>
+
+            {% if user.is_authenticated %}
+              {% csrf_token %}
+                <i class="fas fa-user-circle" style="font-size:2rem; color:#262626"></i>
 
 
-            <div class="dropdown mr-2">
-              <a class="dropdown-toggle dropdown-toggle-split"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="my-2 my-sm-0 mx-2">{{username}}</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right mt-sm-3" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/logout/" role="button">Logout</a>
-              </div>
-            </div>
-
+                  <div class="dropdown mr-2">
+                    <a class="dropdown-toggle dropdown-toggle-split"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="my-2 my-sm-0 mx-2">{{username}}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right mt-sm-3" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/logout/" role="button">Logout</a>
+                    </div>
+                  </div>
+            {% else %}
+              <a class="btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/login/" role="button" style="margin-right:30px">Login</a>
+              <a class="btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/register/" role="button">Register</a>
+            {% endif %}
 
           </div>
 
@@ -48,10 +53,10 @@
 
     <div class="container.fluid">
       <div class="row">
-        <div class="col-2 col-md-2">
-          <div class="container.fluid left-nav">
+        <div class="col-2 col-md-2 left-nav">
+          <div class="container.fluid " style="height:100vh">
             <div class="col-12">
-              <a class="btn btn-outline-dark my-4 btn-nav btn-add-left-nav" href="#post_form" type="button" data-toggle="modal">
+              <a class="btn btn-outline-dark my-4 btn-nav btn-add-left-nav" href="/post/add_post/" type="button">
                 <i class="fas fa-plus my-2" style="font-size:1.5rem">
                 </i>
                 <span style="font-size:1rem;" class="mx-4">
@@ -74,7 +79,7 @@
 
 
     <!--modal post form-->
-    <div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="post_form" aria-hidden="true">
+    <!-- <div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="post_form" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -84,7 +89,14 @@
             </button>
           </div>
           <div class="modal-body">
-            
+            {% load crispy_forms_tags %}
+
+
+            <form id="post_form" method="post" action="/post/add_post/" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <input type="submit" name="submit" value="Create Post">
+              </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -92,7 +104,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Optional JavaScript -->
     <script src="{% get_static_prefix %}script.js"></script>
