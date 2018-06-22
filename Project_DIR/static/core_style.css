@@ -40,9 +40,10 @@ a:hover, a:active{
 
 
 .add{
-  background-color:white !important;
+  background-color:white;
+  margin:10px;
   padding:30px;
-  margin-top:10vh;
+  border: 1px solid rgba(0,0,0,.15) !important;
 }
 
 .navbar{
@@ -89,8 +90,10 @@ a:hover, a:active{
 }
 
 .left-nav-btn{
-  padding:.5rem;
-  padding-right:4rem;
+  padding-top:.5rem;
+  padding-bottom:.5rem;
+  padding-right:5rem;
+  padding-left:1.5rem;
 
 }
 .left-nav-btn:hover{

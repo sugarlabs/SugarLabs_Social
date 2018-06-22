@@ -1,6 +1,7 @@
 {% extends 'core/core_base.html' %}
-
 {% block content %}
-  
-
+{% for post in latest_posts %}
+  <a href="/post/{{ post.url }}">{{post.title}}</a>
+  <li>{{post.created_at}}  | {{post.content}} | {{post.author}}</li>
+{% endfor %}
 {% endblock %}

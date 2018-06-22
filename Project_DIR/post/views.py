@@ -7,7 +7,6 @@ from .models import Post
 from .forms import PostForm
 
 
-
 def post(request):
     username = request.user.username
     latest_posts = Post.objects.all().order_by('-created_at')
