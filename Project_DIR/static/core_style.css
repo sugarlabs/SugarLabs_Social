@@ -27,7 +27,17 @@ body{
   color:#262626;
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
+  text-decoration:none;
 }
+
+a:link, a:visited{
+  color:#262626;
+
+}
+a:hover, a:active{
+  text-decoration: none;
+}
+
 
 .add{
   background-color:white !important;
@@ -78,7 +88,16 @@ body{
   border-radius:0 !important;
 }
 
+.left-nav-btn{
+  padding:.5rem;
+  padding-right:4rem;
 
+}
+.left-nav-btn:hover{
+  background-color:#262626;
+  color:white;
+  text-decoration:none;
+}
 
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {
