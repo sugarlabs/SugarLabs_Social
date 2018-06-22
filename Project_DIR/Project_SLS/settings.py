@@ -25,7 +25,7 @@ SECRET_KEY = ')id3apc64k0a3lb0wzkb!nif8v940-s)pq@xx#90euic-(5)8j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.43.122']
+ALLOWED_HOSTS = [   ]
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'core',
     'feed',
+    'post',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'Project_SLS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'social_db',
+        'USER': 'username',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -129,8 +134,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 #if user is not logged in and try to access the restricted material he or she
 #will be redirected to login page

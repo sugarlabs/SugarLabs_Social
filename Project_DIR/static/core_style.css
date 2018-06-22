@@ -27,6 +27,23 @@ body{
   color:#262626;
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
+  text-decoration:none;
+}
+
+a:link, a:visited{
+  color:#262626;
+
+}
+a:hover, a:active{
+  text-decoration: none;
+}
+
+
+.add{
+  background-color:white;
+  margin:10px;
+  padding:30px;
+  border: 1px solid rgba(0,0,0,.15) !important;
 }
 
 .navbar{
@@ -53,7 +70,6 @@ body{
 
 .left-nav{
   height:100vh;
-  position: fixed;
   background-color:white;
   border: 1px solid rgba(0,0,0,.15) !important;
   border-top:none !important;
@@ -61,10 +77,38 @@ body{
 
 }
 
-.fas{
+.fas, .far{
   background: -webkit-linear-gradient(#ff4b2b, #ff416c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size:1.5rem !important;
+
+}
+
+.modal-content{
+  border-radius:0 !important;
+}
+
+.left-nav-btn{
+  padding-top:.5rem;
+  padding-bottom:.5rem;
+  padding-right:5rem;
+  padding-left:1.5rem;
+
+}
+.left-nav-btn:hover{
+  background-color:#262626;
+  color:white;
+  text-decoration:none;
+}
+
+#id_content{
+  height:15vh;
+}
+
+.feed_post_card{
+  border-radius: 0 !important;
+  padding:20px;
 }
 
 /* for smaller devices width less than 768px */
