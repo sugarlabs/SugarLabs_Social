@@ -1,6 +1,7 @@
 bcrypt==3.1.4
 cffi==1.11.5
 dataclasses==0.6
+dj-database-url==0.5.0
 Django==2.0.6
 django-crispy-forms==1.7.2
 gunicorn==19.8.1
@@ -11,3 +12,4 @@ pycparser==2.18
 pytz==2018.4
 six==1.11.0
 sqlparse==0.2.4
+whitenoise==3.3.1
