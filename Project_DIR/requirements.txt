@@ -10,3 +10,4 @@ pycparser==2.18
 pytz==2018.4
 six==1.11.0
 sqlparse==0.2.4
+gunicorn==19.7.1
