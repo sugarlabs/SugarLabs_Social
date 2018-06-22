@@ -1,9 +1,10 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template import Context, loader
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Post
+from .forms import PostForm
 
 
 
@@ -36,8 +37,18 @@ def post_detail(request, post_url):
     return render(request, 'core/post.html', context_dict)
 
 
-# def post_update(request):
-#     return HttpResponse("<h1>create</h1>")
+def add_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect(post)
+        else:
+            print(form.errors)
+    else:
+        form = PostForm()
+
+    return render(request, 'core/add_post.html', {'form':form})
 #
 #
 # def post_delete(request):
