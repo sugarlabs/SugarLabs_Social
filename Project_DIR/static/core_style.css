@@ -102,6 +102,15 @@ a:hover, a:active{
   text-decoration:none;
 }
 
+#id_content{
+  height:15vh;
+}
+
+.feed_post_card{
+  border-radius: 0 !important;
+  padding:20px;
+}
+
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {
     .xo-logo{
