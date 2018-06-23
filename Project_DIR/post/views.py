@@ -41,7 +41,9 @@ def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save(commit=True)
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
             return redirect(post)
         else:
             print(form.errors)
