@@ -1,0 +1,37 @@
+{% extends 'core/core_base.html' %}
+{% block content %}
+
+<div class="container.fluid">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="container">
+        <div class="row">
+          <div class="card-columns">
+          {% for blog in latest_blogs %}
+
+            <div class="card feed_post_card">
+
+                {% if blog.author %}
+                  <h5 class="card-title">{{blog.author}}</h5>
+
+                {% else %}
+                  <h5 class="card-title">Anonymous</h5>
+                {% endif %}
+                <p class="card-subtitle mb-2 text-muted">{{blog.created_at}}</p>
+
+              {% if blog.image %}
+              <img class="card-img-top" src="/media/{{blog.image}}">
+              {% endif %}
+              <a href="/blog/{{ blog.url }}">{{blog.title}}</a>
+                <p class="card-text">{{blog.content}}</p>
+            </div>
+
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

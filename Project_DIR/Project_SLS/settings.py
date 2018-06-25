@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'feed',
     'post',
+    'blog',
 ]
 
 MIDDLEWARE = [

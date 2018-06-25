@@ -20,6 +20,7 @@ from django.views.static import serve
 from core import views as core_views
 from feed import views as feed_views
 from post import views as post_views
+from blog import views  
 
 admin.autodiscover()
 
@@ -32,4 +33,5 @@ urlpatterns = [
     url(r'^logout/$', core_views.user_logout, name='logout'),
     url(r'^feed/', include('feed.urls')),
     url(r'^post/', include('post.urls')),
+    url(r'^blog/', include('blog.urls')),
 ]
