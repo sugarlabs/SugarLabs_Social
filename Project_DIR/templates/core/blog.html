@@ -1,6 +1,6 @@
 {% extends 'core/core_base.html' %}
 {% block content %}
-  <li>{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>
+  <li class="content-markdown">{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>
   {% if single_blog.image %}
     <img src="/media/{{single_blog.image}}" width="100px" height="100px">
   {% endif %}

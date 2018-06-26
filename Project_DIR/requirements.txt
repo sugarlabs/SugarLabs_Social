@@ -4,6 +4,7 @@ dataclasses==0.6
 dj-database-url==0.5.0
 Django==2.0.6
 django-crispy-forms==1.7.2
+django-pagedown==1.0.5
 gunicorn==19.8.1
 Pillow==5.1.0
 pkg-resources==0.0.0
