@@ -23,7 +23,7 @@
               <img class="card-img-top" src="/media/{{blog.image}}">
               {% endif %}
               <a href="/blog/{{ blog.url }}">{{blog.title}}</a>
-                <p class="card-text content-markdown">{{blog.content}}</p>
+                <p class="card-text">{{blog.get_content_as_markdown}}</p>
             </div>
 
           {% endfor %}

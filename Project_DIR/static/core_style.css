@@ -111,6 +111,10 @@ a:hover, a:active{
   padding:20px;
 }
 
+.CodeMirror, .CodeMirror-scroll {
+	min-height: 100px;
+}
+
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {
     .xo-logo{
