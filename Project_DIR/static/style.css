@@ -18,9 +18,11 @@
     font-family: 'Roboto Condensed', sans-serif;
 
     font-family: 'Lato', sans-serif;
+    font-family: 'Abril Fatface', cursive;
 
 */
 @import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway:300,400|Roboto|Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 
 body{
   background-color: #262626;
@@ -76,6 +78,12 @@ body{
     linear-gradient(to right, #fc6076 0%, #ff9a44 100%);
   border-image-slice: 1;
 
+}
+
+.blog-card{
+  background-color: #fff !important;
+background-clip: border-box !important;
+border: 1px solid rgba(0,0,0,.125) !important;
 }
 
 /* for smaller devices width less than 768px */

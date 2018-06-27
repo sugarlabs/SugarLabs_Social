@@ -1,8 +1,35 @@
 {% extends 'core/core_base.html' %}
+{% load humanize %}
 {% block content %}
-  <li class="content-markdown">{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>
+
+<div class="container" >
+  <!-- <div class="row justify-content-center">
+    <div class="col-12 col-sm-11 "> -->
+
+    </div>
+    <div class="col-12 col-sm-11 my-5 px-5 py-5" style="background-color:#fff; text-align:center">
+      {% if single_blog.author %}
+        <h5 class="card-title" style="font-weight:700; font-size:15px">{{single_blog.author}}</h5>
+
+      {% else %}
+        <h5 class="card-title">Anonymous</h5>
+      {% endif %}
+      <p class="card-subtitle mb-4 text-muted" style="font-size:12px;">{{single_blog.created_at|naturaltime}}</p>
+
+      <h1 style="font-family: 'Abril Fatface', cursive;">{{single_blog.title}}</h1>
+      <hr>
+      {% if single_blog.image %}
+        <img class="img-fluid" src="/media/{{single_blog.image}}">
+      {% endif %}
+      <div>
+        {{single_blog.get_content_as_markdown}}
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- <li class="content-markdown">{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>
   {% if single_blog.image %}
     <img src="/media/{{single_blog.image}}" width="100px" height="100px">
-  {% endif %}
+  {% endif %} -->
 
 {% endblock %}

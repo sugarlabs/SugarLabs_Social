@@ -2,17 +2,38 @@
 {% load humanize %}
 {% block content %}
 
-<div class="container.fluid">
+<div class="container.fluid ">
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="container">
         <div class="row">
-          <div class="card-columns">
+          <!-- <div class="card-columns"> -->
           {% for blog in latest_blogs %}
 
-            <div class="card feed_post_card">
+            <div class="col-12 my-3 ">
+              <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
+                <div class="row ">
+                  <div class="col-3">
+                    {% if blog.image %}
+                        <img class="img-thumbnail card-image-top" src="/media/{{blog.image}}">
 
-                {% if blog.author %}
+                      {% else %}
+                        <a href="https://imgur.com/YBtD4km"><img class="img-thumbnail card-image-top" src="https://i.imgur.com/YBtD4km.png" title="source: imgur.com" /></a>
+                    {% endif %}
+                  </div>
+                  <div class="col-9">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-12 my-3">
+                          <a href="/blog/{{ blog.url }}"><h3 style="font-family:'Roboto', sans-serif;">{{blog.title}}</h3></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <!-- {% if blog.author %}
                   <h5 class="card-title">{{blog.author}}</h5>
 
                 {% else %}
@@ -23,12 +44,12 @@
               {% if blog.image %}
               <img class="card-img-top" src="/media/{{blog.image}}">
               {% endif %}
-              <a href="/blog/{{ blog.url }}">{{blog.title}}</a>
+              <a href="/blog/{{ blog.url }}">{{blog.title}}</a> -->
                 <!-- <p class="card-text">{{blog.get_content_as_markdown}}</p> -->
             </div>
 
           {% endfor %}
-          </div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
