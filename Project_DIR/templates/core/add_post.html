@@ -7,7 +7,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 " style="">
       <div class="add">
-      <form id="post_form" method="post" action="/post/add_post/" enctype="multipart/form-data">
+      <form id="post_form" method="post" action="/post/add_post/" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {{ form|crispy }}
         <input class="btn btn-outline-dark my-2 my-sm-0 btn-nav" type="submit" name="submit" value="submit"/>

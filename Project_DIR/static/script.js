@@ -1,5 +1,10 @@
-// markdown editor initiation
-var simplemde = new SimpleMDE();
+// $(document).ready(function(){
+//   $("responsive-img img").each(function(){
+//     $(this).addClass("img-fluid")
+//   });
+// });
+
+
 
 //for drag and drop attachment of images in markdown editor
 

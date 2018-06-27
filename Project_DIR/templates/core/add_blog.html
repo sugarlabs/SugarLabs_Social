@@ -1,14 +1,16 @@
 {% extends 'core/core_base.html' %}
 {% load crispy_forms_tags %}
 {% block extra_media %}
-  <!-- {{form.media}} -->
+<script>
+  var simplemde = new SimpleMDE();
+  </script>
 {% endblock extra_media %}
 
 {% block content %}
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-10 " style="">
+    <div class="col-12 col-md-11 " style="">
       <div class="add">
       <form id="blog_form" method="post" action="/blog/add_blog/" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
