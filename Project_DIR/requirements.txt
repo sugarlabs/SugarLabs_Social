@@ -5,7 +5,9 @@ dj-database-url==0.5.0
 Django==2.0.6
 django-crispy-forms==1.7.2
 django-pagedown==1.0.5
+django-simplemde==0.1.2
 gunicorn==19.8.1
+Markdown==2.6.11
 Pillow==5.1.0
 pkg-resources==0.0.0
 psycopg2==2.7.4
