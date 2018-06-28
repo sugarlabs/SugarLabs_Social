@@ -8,11 +8,18 @@ from post.models import Post
 
 #feed view
 @login_required
-def feed(request):
+def feed(request, tag_slug=None):
     username = request.user.username
     latest_feed = Post.objects.all().order_by('-created_at')
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag,slug=tag_slug)
+        latest_posts = latest_posts.filter(tags__in=[tag])
+
     context_dict={'username':username,
                   'latest_feed':latest_feed,
+                  'tag':tag
     }
 
     for feed in latest_feed:

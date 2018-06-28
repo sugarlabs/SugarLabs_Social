@@ -53,6 +53,14 @@
                 {% endif %}
                 <a href="/post/{{ feed.url }}" style="font-size:18px; "><strong><u>{{feed.title}}</u></strong></a>
                   <!-- <p class="card-text" style="color:#262626b3">{{feed.get_content_as_markdown}}</p> -->
+                  <p class="tags">
+                    Tags:
+                    {% for tag in feed.tags.all %}
+                        <a class="badge badge-secondary" href="{% url "post_by_tag" tag.slug %}" style="color:#fff">{{ tag.name }}</a>
+                        {% if not forloop.last %},{% endif %}
+                    {% endfor %}
+
+                  </p>
               </div>
             </div>
 

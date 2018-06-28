@@ -18,7 +18,16 @@
     <div class="col-10">
       <div class="container">
         <div class="row">
+          {% if tag %}
+          <div class="col-12 tag-banner py-3 my-2">
+
+              <h1 style="font-size:4rem">{{ tag.name }}</h1>
+
+          </div>
+          {% endif %}
+
           <div class="card-columns">
+
           {% for post in latest_posts %}
 
             <div class="card feed_post_card">
@@ -39,10 +48,10 @@
                 <!-- <p class="card-text" style="color:#262626b3">{{post.get_content_as_markdown}}</p> -->
 
 
-                <p class="tags">
+                <p class="tags my-3">
                   Tags:
                   {% for tag in post.tags.all %}
-                      <a href="{% url "post_by_tag" tag.slug %}">{{ tag.name }}</a>
+                      <a class="badge badge-secondary" href="{% url "post_by_tag" tag.slug %}" style="color:#fff !important">{{ tag.name }}</a>
                       {% if not forloop.last %},{% endif %}
                   {% endfor %}
 
