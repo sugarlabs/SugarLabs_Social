@@ -5,13 +5,21 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
+from taggit.models import Tag
 
 
-def post(request):
+def post(request, tag_slug=None):
     username = request.user.username
     latest_posts = Post.objects.all().order_by('-created_at')
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag,slug=tag_slug)
+        latest_posts = latest_posts.filter(tags__in=[tag])
+
     context_dict={'username':username,
                   'latest_posts':latest_posts,
+                  'tag':tag
     }
 
     for post in latest_posts:
@@ -42,6 +50,7 @@ def add_post(request):
             instance = form.save(commit=False)
             instance.author = request.user
             instance.save()
+            form.save_m2m()
             return redirect(post)
         else:
             print(form.errors)
