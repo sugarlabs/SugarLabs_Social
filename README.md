@@ -18,42 +18,46 @@ $ git clone https://github.com/avinashbharti97/SugarLabs_Social.git
 - python3
 - pip3
 - virtualenvwrapper
-- mongoDB
+- postgresql
 ```
 
 ### Installing Prerequisites
 
 ```
-$ sudo apt-get install python3 python3-pip virtualenvwrapper
+$ sudo apt-get update
+$ sudo apt-get install python3 python3-pip virtualenvwrapper python-dev libpq-dev postgresql postgresql-contrib
 ```
-To install mongoDB follow this link.
 
-* [Install MONGO](https://www.mongodb.com/download-center#community)
-
-start mongod in background before running the project
-```
-$ sudo service mongod start
-```
-check the status of mongoDB
-```
-$ sudo systemctl status mongod
-```
-You should see something like the lines below:
+### Setting up postgresql database
+>keep the value of database name, username and password same,
+>else change the config respectively of settings.py in Project_SLS dir.
 
 ```
-avinash@engine:~$ sudo systemctl status mongod
-● mongod.service - MongoDB Database Server
-   Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: e
-   Active: active (running) since Thu 2018-06-07 16:26:02 IST; 7min ago
-     Docs: https://docs.mongodb.org/manual
- Main PID: 7824 (mongod)
-   CGroup: /system.slice/mongod.service
-           └─7824 /usr/bin/mongod --config /etc/mongod.conf
-
-Jun 07 16:26:02 engine systemd[1]: Started MongoDB Database Server.
-Jun 07 16:26:02 engine mongod[7824]: 2018-06-07T16:26:02.788+0530 I CONTROL  [ma
-lines 1-10/10 (END)
-
+$ sudo su - postgres
+```
+> You should now be in a shell session for the postgres user. Log into a Postgres session by typing:
+```
+psql
+```
+> creating the database
+```
+CREATE DATABASE database;
+```
+*Remember to end all commands at an SQL prompt with a semicolon.*
+> create the user with password
+```
+CREATE USER username WITH PASSWORD 'password';
+```
+> one more step
+```
+GRANT ALL PRIVILEGES ON DATABASE database TO username;
+```
+> exit the shell
+```
+\q
+```
+```
+exit
 ```
 
 
@@ -82,6 +86,14 @@ $ pip install -r requirements.txt
 ```
 $ cd Project_DIR
 ```
+```
+$ python manage.py makemigrations
+```
+>if any prompt choose option 2
+```
+$ python manage.py migrate
+```
+> ignore some errors
 ```
 $ python manage.py runserver
 ```

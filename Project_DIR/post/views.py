@@ -10,10 +10,8 @@ from .forms import PostForm
 def post(request):
     username = request.user.username
     latest_posts = Post.objects.all().order_by('-created_at')
-    id = Post.objects.get(title='Test')
     context_dict={'username':username,
                   'latest_posts':latest_posts,
-                  'id':id,
     }
 
     for post in latest_posts:

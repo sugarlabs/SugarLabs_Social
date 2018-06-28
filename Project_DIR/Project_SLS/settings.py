@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Project_SLS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'social_db',
+        'NAME': 'database',
         'USER': 'username',
         'PASSWORD': 'password',
         'HOST': 'localhost',
