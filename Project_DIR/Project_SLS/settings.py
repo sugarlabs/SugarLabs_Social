@@ -51,6 +51,8 @@ INSTALLED_APPS = [
 
 COMMENTS_APP = 'fluent_comments'
 
+# FLUENT_COMMENTS_FIELD_ORDER = ('comment')
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
