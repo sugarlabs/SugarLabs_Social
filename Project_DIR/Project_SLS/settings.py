@@ -38,13 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'fluent_comments',
     'crispy_forms',
+    'django_comments',
+    'django.contrib.sites',
     'taggit',
     'core',
     'feed',
     'post',
     'blog',
 ]
+
+COMMENTS_APP = 'fluent_comments'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -146,3 +151,5 @@ MEDIA_URL = '/media/'
 #if user is not logged in and try to access the restricted material he or she
 #will be redirected to login page
 LOGIN_URL ='/login/'
+
+SITE_ID=1

@@ -1,5 +1,11 @@
 {% extends 'core/core_base.html' %}
 {% load humanize %}
+{% load comments static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}" />
+<script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
+
+
 
 {% block add_btn %}
 <a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/blog/add_blog/" >
@@ -17,7 +23,7 @@
   <!-- <div class="row justify-content-center">
     <div class="col-12 col-sm-11 "> -->
 
-    </div>
+    <!-- </div> -->
     <div class="col-12 col-sm-11 my-5 px-5 py-5" style="background-color:#fff; text-align:center">
       {% if single_blog.author %}
         <h5 class="card-title" style="font-weight:700; font-size:15px">{{single_blog.author}}</h5>
@@ -37,7 +43,12 @@
       </div>
     </div>
   </div>
-</div>
+
+
+  {% render_comment_list for single_blog %}
+  {% render_comment_form for single_blog %}
+
+<!-- </div> -->
   <!-- <li class="content-markdown">{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>
   {% if single_blog.image %}
     <img src="/media/{{single_blog.image}}" width="100px" height="100px">
