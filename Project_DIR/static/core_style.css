@@ -132,3 +132,84 @@ a:hover, a:active{
       visibility: hidden;
     }
 }
+
+
+
+.message {
+    width: 300px;
+    background-color: #faf0e6;
+    border-radius: 10px;
+}
+.message * {
+    padding: 10px;
+}
+.title {
+    font-weight: bold;
+}
+/* BEGIN COMMENTS */
+.comment {
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+}
+.comment_li {
+    list-style: none;
+}
+.comment_last {
+    padding: 10px;
+    margin: 10px;
+}
+.comment_info {
+    line-height: 24px;
+    position: relative;
+}
+.comment_user {
+    text-decoration: underline;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #666;
+    font-size: .99em;
+    cursor: pointer;
+    float: left;
+}
+.comment_data {
+    font-size: 11px;
+    color: #666;
+    margin-top: 10px;
+}
+.comment_text {
+    margin-top: 10px;
+    float: inherit;
+    font-size: 1.08em;
+    color: black;
+}
+.comment_reply_link {
+    color: #004276;
+    outline: none;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+.comments_length {
+    padding-left: 15px;
+    font-weight: bold;
+}
+#form-comment {
+    padding: 15px;
+    margin: 15px;
+    background-color: #faf0e6;
+    width: 500px;
+}
+form label {
+    float: left;
+    width: 130px;
+}
+label[for=id_honeypot],
+#id_honeypot {
+  display: none;
+}
+#cancel_reply {
+    display: none;
+}
+.comments #cancel_reply {
+  display: inline;
+}
