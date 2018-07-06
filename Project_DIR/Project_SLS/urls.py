@@ -35,6 +35,5 @@ urlpatterns = [
     url(r'^feed/', include('feed.urls')),
     url(r'^post/', include('post.urls')),
     url(r'^blog/', include('blog.urls')),
-    url(r'^blog/comments/', include('fluent_comments.urls')),
 
 ]

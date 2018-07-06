@@ -1,12 +1,5 @@
 {% extends 'core/core_base.html' %}
 {% load humanize %}
-{% load comments static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}" />
-<script type="text/javascript" src="{% static 'fluent_comments/js/ajaxcomments.js' %}"></script>
-
-
-
 {% block add_btn %}
 <a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/blog/add_blog/" >
   <i class="fas fa-plus my-2" style="font-size:1.5rem">
@@ -45,8 +38,6 @@
   </div>
 
 
-  {% render_comment_list for single_blog %}
-  {% render_comment_form for single_blog %}
 
 <!-- </div> -->
   <!-- <li class="content-markdown">{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>

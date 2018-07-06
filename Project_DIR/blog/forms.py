@@ -2,7 +2,6 @@ from django import forms
 from .models import Blog
 
 
-
 class BlogForm(forms.ModelForm):
     title = forms.CharField(max_length=100)
     content = forms.CharField(

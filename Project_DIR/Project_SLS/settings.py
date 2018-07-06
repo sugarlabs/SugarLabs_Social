@@ -38,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'fluent_comments',
     'crispy_forms',
-    'django_comments',
     'django.contrib.sites',
     'taggit',
     'core',
@@ -49,9 +47,7 @@ INSTALLED_APPS = [
     'blog',
 ]
 
-COMMENTS_APP = 'fluent_comments'
 
-# FLUENT_COMMENTS_FIELD_ORDER = ('comment')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
