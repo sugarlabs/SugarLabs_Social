@@ -19,11 +19,11 @@
 {% block content %}
 
 <div class="container" >
-  <!-- <div class="row justify-content-center">
-    <div class="col-12 col-sm-11 "> -->
+  <div class="row justify-content-center">
+    <!-- <div class="col-12 col-sm-11 "> -->
 
     <!-- </div> -->
-    <div class="col-12 col-sm-11 my-5 px-5 py-5" style="background-color:#fff; text-align:center">
+    <div class="col-12 col-sm-11 my-5 px-5 py-5" style="background-color:#fff; ">
       {% if single_blog.author %}
         <h5 class="card-title" style="font-weight:700; font-size:15px">{{single_blog.author}}</h5>
 
@@ -45,52 +45,24 @@
 
 <!--comments-->
 
+<!-- <script>
+    $(function(){
+        $("a.comment_reply_link").click(function(){
+            var parent_id = +$(this).attr('data-id');
+            $("input[name='parent']").attr('value',parent_id);
+        })
+    })
+</script> -->
+
   {% load threadedcomments_tags %}
   {% load i18n %}
 
   <h2>Comments for {{ single_blog.title }}:</h2>
 
   {% render_comment_list for single_blog %}
-  <!-- <div class="comments_length">
-    <p>{{ comment_list|length }} Comments</p>
-</div>
 
-<div class="comments">
-    {% for comment in comment_list|fill_tree|annotate_tree %}
-        {% if comment.open %}
-            <ul>
-        {% else %}
-            </li>
-        {% endif %}
-        <li class="comment_li" id="c{{ comment.id }}">{# c## is used by the absolute URL of the Comment model, so keep that as it is. #}
-            <div class="comment">
-                <div class="comment_info">
-                    <div class="comment_user">{{ comment.user_name }}</div>
-                    <div class="comment_data">
-                        {{ comment.submit_date|date:"d M Y, H:i" }}
-                        | <a href="#c{{ comment.id }}" data-comment-id="{{ comment.id }}" class="comment_reply_link">Reply</a>
-                    </div>
-                </div>
-                <div class="comment_text">
-                    {{ comment.comment }}
-                </div>
-            </div>
-            {% for close in comment.close %}</li></ul>{% endfor %}
-
-    {% endfor %}
-</div> -->
   {% render_comment_form for single_blog %}
 
-
-
-
 <!-- comments end-->
-
-
-<!-- </div> -->
-  <!-- <li class="content-markdown">{{single_blog.created_at}} | {{single_blog.title}} | {{single_blog.content}} | {{single_blog.author}} | {{single_blog.tag}} |</li>
-  {% if single_blog.image %}
-    <img src="/media/{{single_blog.image}}" width="100px" height="100px">
-  {% endif %} -->
 
 {% endblock %}

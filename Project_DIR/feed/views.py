@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from post.models import Post
 
 
+
 #feed view
 @login_required
 def feed(request, tag_slug=None):

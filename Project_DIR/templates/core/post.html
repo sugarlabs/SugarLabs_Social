@@ -29,7 +29,15 @@
         {% if single_post.image %}
         <img class="card-img-top" src="/media/{{single_post.image}}">
         {% endif %}
-        <a href="/post/{{ single_post.url }}" style="font-size:18px; "><strong><u>{{single_post.title}}</u></strong></a>
+        <h2 style="margin-top:20px; margin-bottom:10px"><strong>{{single_post.title}}</strong></h2>
+        <p class="tags">
+
+          {% for tag in single_post.tags.all %}
+              <a class="badge badge-secondary mb-3" href="{% url "post_by_tag" tag.slug %}" style="color:#fff">{{ tag.name }}</a>
+              {% if not forloop.last %},{% endif %}
+          {% endfor %}
+
+        </p>
           <p class="card-text responsive-img" style="color:#262626b3">{{single_post.get_content_as_markdown}}</p>
       </div>
     </div>

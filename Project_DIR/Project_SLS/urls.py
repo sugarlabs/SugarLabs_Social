@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^logout/$', core_views.user_logout, name='logout'),
     url(r'^tag/(?P<tag_slug>[-\w]+)/$',post_views.post, name='post_by_tag'),
     url(r'^feed/', include('feed.urls')),
+    url(r'^custom_tags/', include('custom_tags.urls')),
     url(r'^post/', include('post.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^blog/comments/', include('django_comments.urls')),

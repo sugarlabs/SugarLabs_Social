@@ -21,22 +21,7 @@
           <div class="row justify-content-center">
             {% for feed in latest_feed %}
             <div class="col-8">
-              <!-- <div class="card feed_post_card my-2">
 
-                  {% if feed.author %}
-                    <h5 class="card-title">{{feed.author}}</h5>
-
-                  {% else %}
-                    <h5 class="card-title">Anonymous</h5>
-                  {% endif %}
-                  <p class="card-subtitle mb-2 text-muted">{{feed.created_at}}</p>
-
-                {% if feed.image %}
-                <img class="card-img-top" src="/media/{{post.image}}">
-                {% endif %}
-                  <a href="/post/{{ feed.url }}">{{feed.title}}</a>
-                  <p class="card-text">{{feed.get_content_as_markdown}}</p>
-              </div> -->
               <div class="card feed_post_card my-2">
 
                   {% if feed.author %}
@@ -51,10 +36,10 @@
                 {% if feed.image %}
                 <img class="card-img-top" src="/media/{{feed.image}}">
                 {% endif %}
-                <a href="/post/{{ feed.url }}" style="font-size:18px; "><strong><u>{{feed.title}}</u></strong></a>
+                <h3 style="margin-top:20px; margin-bottom:10px"><a href="/post/{{ feed.url }}"><strong>{{feed.title}}</strong></a></h3>
                   <!-- <p class="card-text" style="color:#262626b3">{{feed.get_content_as_markdown}}</p> -->
                   <p class="tags">
-                    Tags:
+
                     {% for tag in feed.tags.all %}
                         <a class="badge badge-secondary" href="{% url "post_by_tag" tag.slug %}" style="color:#fff">{{ tag.name }}</a>
                         {% if not forloop.last %},{% endif %}
@@ -68,6 +53,10 @@
           </div>
         </div>
       </div>
+
+{% for tag in custom_tags %}
+  {{tag}}
+{% endfor %}
 
 
     </div>
