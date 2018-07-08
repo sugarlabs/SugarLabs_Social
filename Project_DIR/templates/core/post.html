@@ -1,4 +1,13 @@
 {% extends 'core/core_base.html' %}
+{% block extra_media %}
+<style>
+  #id_comment{
+    height:80px;
+  }
+</style>
+{% endblock extra_media %}
+{% load threadedcomments_tags %}
+{% load i18n %}
 {% load humanize %}
 
 {% block add_btn %}
@@ -42,7 +51,44 @@
       </div>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6">
+        <h5>Response</h5>
+      <div class="card">
+          {% render_comment_form for single_post %}
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6">
+      <div class="card my-2">
+          {% render_comment_list for single_post %}
+      </div>
+    </div>
+  </div>
 </div>
+<!--comments-->
 
+<!-- <script>
+    $(function(){
+        $("a.comment_reply_link").click(function(){
+            var parent_id = +$(this).attr('data-id');
+            $("input[name='parent']").attr('value',parent_id);
+        })
+    })
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- comments end-->
 
 {% endblock %}

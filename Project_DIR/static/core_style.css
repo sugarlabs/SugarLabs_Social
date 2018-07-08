@@ -199,9 +199,6 @@ a:hover, a:active{
 }
 #form-comment {
     padding: 15px;
-    margin: 15px;
-    background-color: #faf0e6;
-    width: 500px;
 }
 form label {
     float: left;
@@ -217,3 +214,6 @@ label[for=id_honeypot],
 .comments #cancel_reply {
   display: inline;
 }
+
+
+/

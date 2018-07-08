@@ -4,7 +4,9 @@ from django.template import Context, loader
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from post.models import Post
+from blog.models import Blog
 from .models import CustomTags
+from itertools import chain
 
 
 
@@ -12,7 +14,11 @@ from .models import CustomTags
 @login_required
 def feed(request, tag_slug=None):
     username = request.user.username
-    latest_feed = Post.objects.all().order_by('-created_at')
+    latest_posts = Post.objects.all()
+    latest_blogs = Blog.objects.all()
+    querysets = [latest_posts, latest_blogs]
+    latest_feed = list(chain(*querysets))
+    latest_feed.sort(key=lambda x: x.created_at, reverse=True)
     all_custom_tags = CustomTags.objects.all()
     tag = None
 

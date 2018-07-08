@@ -21,3 +21,7 @@ class Blog(models.Model):
 
     def get_content_as_markdown(self):
         return mark_safe(markdown(self.content, safe_mode='escape'))
+
+    def get_cname(self):
+        class_name = blog
+        return class_name

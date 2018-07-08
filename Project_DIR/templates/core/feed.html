@@ -1,5 +1,6 @@
 {% extends 'core/core_base.html' %}
 {% load humanize %}
+{% load class_tag %}
 
 {% block add_btn %}
 <a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/post/add_post/" >
@@ -20,7 +21,9 @@
         <div class="container.fluid">
           <div class="row justify-content-center">
             {% for feed in latest_feed %}
-            <div class="col-8">
+
+            {% if feed|get_class == 'Post' %}
+            <div class="col-12 col-sm-8">
 
               <div class="card feed_post_card my-2">
 
@@ -48,6 +51,38 @@
                   </p>
               </div>
             </div>
+            {% else %}
+
+
+                        <div class="col-12 col-sm-8 my-3 ">
+                          <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
+                            <div class="row">
+                              <div class="col-12 col-sm-3" >
+                                {% if feed.image %}
+                                    <img style="height:25vh; width:10vw; object-fit:cover" src="/media/{{feed.image}}"  alt="">
+
+                                  {% else %}
+                                    <a href="https://imgur.com/YBtD4km"><img  src="https://i.imgur.com/YBtD4km.png" style="height:25vh; width:10vw; object-fit:cover"/></a>
+                                {% endif %}
+                              </div>
+                              <div class="col-12 col-sm-9">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-12 py-3">
+                                      <a href="/blog/{{ feed.url }}"><h3><strong>{{feed.title}}</strong></h3></a>
+                                    </div>
+                                    <div class="col-12" style="text-align:right">
+                                      <span>{{feed.author}}</span>|
+                                      <span style="font-size:10px">{{feed.created_at|naturaltime}}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+            {% endif %}
 
             {% endfor %}
           </div>

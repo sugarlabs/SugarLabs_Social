@@ -1,5 +1,16 @@
 {% extends 'core/core_base.html' %}
+
+{% block extra_media %}
+<style>
+  #id_comment{
+    height:80px;
+  }
+</style>
+{% endblock extra_media %}
+
 {% load humanize %}
+{% load threadedcomments_tags %}
+{% load i18n %}
 <!-- {% load comments static %} -->
 
 <link rel="stylesheet" type="text/css" href="{% static 'fluent_comments/css/ajaxcomments.css' %}" />
@@ -54,17 +65,21 @@
     })
 </script> -->
 
-  {% load threadedcomments_tags %}
-  {% load i18n %}
-
-  <h2>Comments for {{ single_blog.title }}:</h2>
-
-  {% render_comment_list for single_blog %}
-
-
-
-
-  {% render_comment_form for single_blog %}
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-11">
+      <h5>Response</h5>
+    <div class="card">
+        {% render_comment_form for single_blog %}
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-11">
+    <div class="card my-2">
+        {% render_comment_list for single_blog %}
+    </div>
+  </div>
+</div>
 
 <!-- comments end-->
 

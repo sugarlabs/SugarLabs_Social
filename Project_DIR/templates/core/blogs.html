@@ -1,6 +1,7 @@
 {% extends 'core/core_base.html' %}
 {% load humanize %}
 
+
 {% block add_btn %}
 <a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/blog/add_blog/" >
   <i class="fas fa-plus my-2" style="font-size:1.5rem">
@@ -15,7 +16,7 @@
 
 <div class="container.fluid ">
   <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-12 col-sm-8">
       <div class="container">
         <div class="row">
           <!-- <div class="card-columns"> -->
@@ -23,40 +24,30 @@
 
             <div class="col-12 my-3 ">
               <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
-                <div class="row ">
-                  <div class="col-3">
+                <div class="row">
+                  <div class="col-12 col-sm-3" >
                     {% if blog.image %}
-                        <img class="img-thumbnail card-image-top" src="/media/{{blog.image}}">
+                        <img style="height:25vh; width:10vw; object-fit:cover" src="/media/{{blog.image}}"  alt="">
 
                       {% else %}
-                        <a href="https://imgur.com/YBtD4km"><img class="img-thumbnail card-image-top" src="https://i.imgur.com/YBtD4km.png" title="source: imgur.com" /></a>
+                        <a href="https://imgur.com/YBtD4km"><img  src="https://i.imgur.com/YBtD4km.png" style="height:25vh; width:10vw; object-fit:cover"/></a>
                     {% endif %}
                   </div>
-                  <div class="col-9">
+                  <div class="col-12 col-sm-9">
                     <div class="container">
                       <div class="row">
-                        <div class="col-12 my-3">
-                          <a href="/blog/{{ blog.url }}"><h3 style="font-family:'Roboto', sans-serif;">{{blog.title}}</h3></a>
+                        <div class="col-12 py-3">
+                          <a href="/blog/{{ blog.url }}"><h3><strong>{{blog.title}}</strong></h3></a>
+                        </div>
+                        <div class="col-12" style="text-align:right">
+                          <span>{{blog.author}}</span>|
+                          <span style="font-size:10px">{{blog.created_at|naturaltime}}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-                <!-- {% if blog.author %}
-                  <h5 class="card-title">{{blog.author}}</h5>
-
-                {% else %}
-                  <h5 class="card-title">Anonymous</h5>
-                {% endif %}
-                <p class="card-subtitle mb-2 text-muted">{{blog.created_at|naturaltime}}</p>
-
-              {% if blog.image %}
-              <img class="card-img-top" src="/media/{{blog.image}}">
-              {% endif %}
-              <a href="/blog/{{ blog.url }}">{{blog.title}}</a> -->
-                <!-- <p class="card-text">{{blog.get_content_as_markdown}}</p> -->
             </div>
 
           {% endfor %}

@@ -1,0 +1,43 @@
+
+<div id="form-comment">
+    <form action="/post/comments/post/" method="post">{% csrf_token %}
+        <!-- {{ form.as_p }}{# just to keep the example simple. Consider using django-crispy-forms in real life #} -->
+
+        {% for field in form %}
+           {% ifequal field.name "name" %}
+               <input id="id_name" type="hidden" name="name" value="{{ user.username }}" />
+           {% else %}
+           {% ifequal field.name "email" %}
+                 <input type="hidden" name="email" value="{{ user.email }}" id="id_email" />
+
+           {% else %}
+           {% ifequal field.name "url" %}
+                <input type="hidden" name="url" value="" id="id_url" />
+
+          {% else %}
+          {% ifequal field.name "title" %}
+               <input type="hidden" name="title" value="no_title" id="id_title" />
+
+           {% else %}
+            {% load crispy_forms_tags %}
+             {{ field }}
+           {% endifequal %}
+           {% endifequal %}
+           {% endifequal %}
+           {% endifequal %}
+         {% endfor %}
+         <p>
+           {% if user.is_authenticated %}
+             <input type="submit" name="submit" value="Post">
+             <a href="#c0" id="cancel_reply">cancel reply</a>
+            {% else %}
+            <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Welcome!</h4>
+              <p>Looks like you didn't login yet!</p>
+              <hr>
+              <p class="mb-0">To Comment in this thread please Register/Login</p>
+            </div>
+           {% endif %}
+        </p>
+    </form>
+</div>
