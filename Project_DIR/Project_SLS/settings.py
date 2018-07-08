@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'feed',
     'post',
     'blog',
-    'custom_tags'
+    # 'custom_tags'
 ]
 
 COMMENTS_APP = 'threadedcomments'

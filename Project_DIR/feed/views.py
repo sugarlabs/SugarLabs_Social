@@ -4,6 +4,7 @@ from django.template import Context, loader
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from post.models import Post
+from .models import CustomTags
 
 
 
@@ -12,6 +13,7 @@ from post.models import Post
 def feed(request, tag_slug=None):
     username = request.user.username
     latest_feed = Post.objects.all().order_by('-created_at')
+    all_custom_tags = CustomTags.objects.all()
     tag = None
 
     if tag_slug:
@@ -20,7 +22,9 @@ def feed(request, tag_slug=None):
 
     context_dict={'username':username,
                   'latest_feed':latest_feed,
-                  'tag':tag
+                  'tag':tag,
+                  'custom_tags':all_custom_tags
+
     }
 
     for feed in latest_feed:
