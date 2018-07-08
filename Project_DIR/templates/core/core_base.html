@@ -55,8 +55,8 @@
 
     <div class="container.fluid">
       <div class="row">
-        <div class="col-md-2 left-nav hidden-xs">
-          <div class="container.fluid " style="height:100vh">
+        <div class="col-12 col-sm-2 left-nav ">
+          <div class="container.fluid left-nav-container" style="height:100vh">
             <div class="row ">
               <div class="col-12">
 
@@ -72,69 +72,77 @@
                 </a> -->
                 <hr>
               </div>
-              <a href="/feed/">
-                <div class="col-12 my-2 left-nav-btn">
-                  <div class="container">
+
+                <div class="col-3 col-sm-12 my-2 ">
+                  <a href="/feed/">
+                  <div class="container left-nav-btn">
                     <div class="row">
-                      <div class="col-4">
+                      <div class="col-sm-4 col-12">
                         <span><i class="far fa-newspaper mr-4" style="font-size:1rem;"></i></span>
                       </div>
-                      <div class="col-8">
+                      <div class="col-sm-8 col-12">
                         <span>Feed</span>
                       </div>
                     </div>
                   </div>
+                  </a>
                 </div>
-              </a>
 
-              <a href="/post/">
-              <div class="col-12 left-nav-btn my-2">
-                <div class="container">
+
+              <!-- <a href="/post/"> -->
+              <div class="col-3 col-sm-12 my-2">
+                <a href="/post/">
+                <div class="container left-nav-btn">
                   <div class="row">
-                    <div class="col-4">
+                    <div class="col-sm-4 col-12">
                       <span><i class="fas fa-list mr-4" style="font-size:1rem;"></i></span>
                     </div>
-                    <div class="col-8">
+                    <div class="col-sm-8 col-12">
                       <span>Posts</span>
                     </div>
                   </div>
                 </div>
+                </a>
               </div>
-            </a>
+            <!-- </a> -->
 
-              <a href="/blog/">
-              <div class="col-12 left-nav-btn my-2">
-                <div class="container">
+              <!-- <a href="/blog/"> -->
+              <div class="col-3 col-sm-12  my-2">
+                <a href="/blog/">
+                <div class="container left-nav-btn">
                   <div class="row">
-                    <div class="col-4">
+                    <div class="col-sm-4 col-12">
                       <span><i class="fas fa-rss mr-4" style="font-size:1rem;"></i></span>
                     </div>
-                    <div class="col-8">
+                    <div class="col-sm-8 col-12">
                       <span>Blog</span>
                     </div>
                   </div>
                 </div>
+                </a>
               </div>
-              </a>
+              <!-- </a> -->
 
-              <a href="/projects/">
-              <div class="col-12 left-nav-btn my-2" href="/feed/">
-                <div class="container">
+              <!-- <a href="/projects/"> -->
+              <div class="col-3 col-sm-12  my-2" href="/feed/">
+                <a href="/projects/">
+                <div class="container left-nav-btn">
                   <div class="row">
-                    <div class="col-4">
+                    <div class="col-sm-4 col-12">
                       <span><i class="fas fa-cogs mr-4" style="font-size:1rem;"></i></span>
                     </div>
-                    <div class="col-8">
+                    <div class="col-sm-8 col-12">
                       <span>Projects</span>
                     </div>
                   </div>
                 </div>
+                </a>
               </div>
-              </a>
+              <!-- </a> -->
             </div>
           </div>
         </div>
-        <div class="col-10 col-md-10">
+        <div class="col-12 col-sm-10 ">
 
                 {% block content %}
                 {% endblock %}

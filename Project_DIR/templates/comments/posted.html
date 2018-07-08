@@ -4,7 +4,7 @@
 
 {% block extrahead %}
 {{ block.super }}
-    <meta http-equiv="Refresh" content="5; url={{ comment.content_object.get_absolute_url }}#c{{ comment.id }}" />
+    <meta http-equiv="Refresh" content="5; url={{ comment.single_blog.get_absolute_url }}#c{{ comment.id }}" />
 {% endblock %}
 
 {% block content %}
@@ -16,5 +16,5 @@
       {% endblocktrans %}
     </p>
 
-    <p><a href="{{ comment.content_object.get_absolute_url }}#c{{ comment.id }}">{% trans "Back to the article" %}</a></p>
+    <p><a href="{{ comment.single_blog.get_absolute_url }}#c{{ comment.id }}">{% trans "Back to the article" %}</a></p>
 {% endblock %}
