@@ -38,6 +38,14 @@ a:hover, a:active{
   /* text-decoration: none; */
 }
 
+/* a:link.left-nav-link{
+  color:#26262666 !important;
+} */
+
+
+/* .left-nav-text{
+  color:#26262666;
+} */
 
 .add{
   background-color:white;
@@ -97,14 +105,26 @@ a:hover, a:active{
 
 }
 .left-nav-btn:hover{
-  background-color:#262626;
+  color:#262626;
+  text-decoration:none;
+}
+.left-nav-active{
+  background-color:#2626261a !important;
   color:white;
   text-decoration:none;
+  border-style: solid;
+  border-color: #20242966;
+  border-top: none;
+  border-bottom: none;
+}
+a:link.left-nav-active{
+  color:white !important;
 }
 
 #id_content{
   height:15vh;
 }
+
 
 .feed_post_card{
   border-radius: 0 !important;
