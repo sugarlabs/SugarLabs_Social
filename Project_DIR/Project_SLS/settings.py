@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'feed',
     'post',
     'blog',
+    'projects'
     # 'custom_tags'
 ]
 

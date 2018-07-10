@@ -21,6 +21,7 @@ from core import views as core_views
 from feed import views as feed_views
 from post import views as post_views
 from blog import views
+from projects import views
 
 admin.autodiscover()
 
@@ -36,6 +37,7 @@ urlpatterns = [
     # url(r'^custom_tags/', include('custom_tags.urls')),
     url(r'^post/', include('post.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^projects/', include('projects.urls')),
     url(r'^blog/comments/', include('django_comments.urls')),
     url(r'^post/comments/', include('django_comments.urls')),
 
