@@ -89,7 +89,7 @@ a:hover, a:active{
   background: -webkit-linear-gradient(#ff4b2b, #ff416c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size:1.5rem !important;
+  font-size:1.25rem !important;
 
 }
 
@@ -104,9 +104,17 @@ a:hover, a:active{
   padding-left:1.5rem;
 
 }
-.left-nav-btn:hover{
+/* .left-nav-btn:hover{
   color:#262626;
   text-decoration:none;
+
+} */
+.left-nav-btn-div:hover{
+  background-color:#2626261a !important;
+  border-style: solid;
+  border-color: #20242966;
+  border-top: none;
+  border-bottom: none;
 }
 .left-nav-active{
   background-color:#2626261a !important;
