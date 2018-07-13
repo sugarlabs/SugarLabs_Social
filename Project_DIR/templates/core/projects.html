@@ -12,5 +12,68 @@
 {% endblock add_btn %}
 
 {% block content %}
-  yay!
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="container">
+          <div class="row my-5">
+            <div class="col-12">
+              <h5>Running</h5>
+            </div>
+            {% for project in projects %}
+              {% if project.status == 'RN' %}
+                <div class="col-12 col-sm-3">
+                  <div class="card" style="width: 12rem;">
+                    <img style="height:6rem; width:11.75rem; object-fit:cover" src="/media/{{project.image}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h6 class="card-title">{{project.title}}</h6>
+                      <!-- <p class="card-text">{{project.subtitle}}</p> -->
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+          <div class="row my-5">
+            <div class="col-12">
+              <h5>Upcoming</h5>
+            </div>
+            {% for project in projects %}
+              {% if project.status == 'UPCMG' %}
+                <div class="col-12 col-sm-3">
+                  <div class="card" style="width: 12rem;">
+                    <img style="height:6rem; width:11.75rem; object-fit:cover" src="/media/{{project.image}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h6 class="card-title">{{project.title}}</h6>
+                      <!-- <p class="card-text">{{project.subtitle}}</p> -->
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="row my-5">
+            <div class="col-12">
+              <h5>Completed</h5>
+            </div>
+            {% for project in projects %}
+              {% if project.status == 'CMPLTD' %}
+                <div class="col-12 col-sm-3">
+                  <div class="card" style="width: 12rem;">
+                    <img style="height:6rem; width:11.75rem; object-fit:cover" src="/media/{{project.image}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h6 class="card-title">{{project.title}}</h6>
+                      <!-- <p class="card-text">{{project.subtitle}}</p> -->
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

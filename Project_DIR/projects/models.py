@@ -16,7 +16,7 @@ class Project(models.Model):
         (COMPLETED, 'Completed')
     )
     status = models.CharField(
-        max_length = 2,
+        max_length = 10,
         choices = status_choices
     )
     WEB = 'WB'
@@ -30,7 +30,7 @@ class Project(models.Model):
         (NA, 'NA')
     )
     category = models.CharField(
-        max_length = 2,
+        max_length = 10,
         choices=category_choices,
         default=NA
     )
