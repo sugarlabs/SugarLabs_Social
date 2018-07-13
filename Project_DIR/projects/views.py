@@ -7,12 +7,12 @@ from .models import Project
 # Create your views here.
 def projects(request):
     username = request.user.username
-    all_projects = Projects.objects.all()
+    all_projects = Project.objects.all()
     context_dict = {'username':username,
                     'projects':all_projects
     }
 
-    for project in projects:
+    for project in all_projects:
         project.url =  project.title.replace(' ', '_')
 
     return render(request, 'core/projects.html', context_dict)

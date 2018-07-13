@@ -6,6 +6,10 @@ $(document).ready(function () {
     $('.left-nav-btn-div a').filter(function() {
          return this.href == url;
     }).parent().addClass('left-nav-active');
-    console.log("hey");
+
+    $('.left-nav-btn-div a[href="'+ url +'"]').parent().addClass('left-nav-active');
+    $('.left-nav-btn-div a').filter(function() {
+         return this.href == url;
+    }).parent().addClass('left-nav-active');
 
 });

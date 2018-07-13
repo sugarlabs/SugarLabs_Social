@@ -85,12 +85,24 @@ a:hover, a:active{
 
 }
 
-.fas, .far{
+/* .fas, .far{
   background: -webkit-linear-gradient(#ff4b2b, #ff416c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size:1.25rem !important;
 
+} */
+
+.icon{
+  background: -webkit-linear-gradient(#ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:1.25rem !important;
+}
+
+.left-nav-icon{
+  color: #20242966 !important;
+  font-size:1.25rem !important;
 }
 
 .modal-content{
@@ -128,6 +140,21 @@ a:hover, a:active{
 a:link.left-nav-active{
   color:white !important;
 }
+
+.left-nav-active .fas{
+  background: -webkit-linear-gradient(#ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:1.25rem !important;
+}
+
+.left-nav-active .far{
+  background: -webkit-linear-gradient(#ff4b2b, #ff416c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size:1.25rem !important;
+}
+
 
 #id_content{
   height:15vh;
