@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^post/', include('post.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^projects/', include('projects.urls')),
-    url(r'^blog/comments/', include('django_comments.urls')),
-    url(r'^post/comments/', include('django_comments.urls')),
+    url(r'^comments/', include('django_comments.urls')),
+    # url(r'^post/comments/', include('django_comments.urls')),
 
 ]

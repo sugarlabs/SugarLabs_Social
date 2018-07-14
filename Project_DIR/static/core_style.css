@@ -181,6 +181,11 @@ a:link.left-nav-active{
 .featured_tags{
   font-size:12px !important;
 }
+
+.project-container{
+  background-color:white;
+  border: 1px solid rgba(0,0,0,.15) !important;
+}
 /* for smaller devices width less than 768px */
 @media only screen and (max-width: 768px) {
     .xo-logo{

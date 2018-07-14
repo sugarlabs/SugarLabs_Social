@@ -20,7 +20,7 @@ def projects(request):
 
 def project(request, project_url):
     username = request.user.username
-    project = get_object_or_404(Projects, title=project_url.replace('_', ' '))
+    project = get_object_or_404(Project, title=project_url.replace('_', ' '))
     context_dict = {'username':username,
                 'project':project
     }
