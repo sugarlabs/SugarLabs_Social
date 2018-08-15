@@ -3,9 +3,12 @@ cffi==1.11.5
 dataclasses==0.6
 dj-database-url==0.5.0
 Django==2.0.6
+django-contrib-comments==1.9.0
 django-crispy-forms==1.7.2
 django-pagedown==1.0.5
 django-simplemde==0.1.2
+django-taggit==0.23.0
+django-threadedcomments==1.2
 gunicorn==19.8.1
 Markdown==2.6.11
 Pillow==5.1.0
