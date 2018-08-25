@@ -144,6 +144,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+#to use the built-in JSONB field to store the extracted extra_data
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 # google auth credentials
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='988351086799-nqbscdiddo197rahloh6pftvdshshkr3.apps.googleusercontent.com'
@@ -152,6 +154,10 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='HKPd7FOBPryXr0MKJsQeSIEj'
 # github auth credentials
 SOCIAL_AUTH_GITHUB_KEY = '7a3fb8d954ba5e417e01'
 SOCIAL_AUTH_GITHUB_SECRET = '738ed4841847dfc9ee449894643b4aec2e1a1432'
+
+# facebook auth credentials
+SOCIAL_AUTH_FACEBOOK_KEY = '514847602262073'
+SOCIAL_AUTH_FACEBOOK_SECRET = '0f6f0a43080d98d75d0a7fe15d7ddec2'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
