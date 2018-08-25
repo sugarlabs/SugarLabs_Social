@@ -146,9 +146,12 @@ AUTHENTICATION_BACKENDS = (
 
 
 # google auth credentials
-
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='988351086799-nqbscdiddo197rahloh6pftvdshshkr3.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='HKPd7FOBPryXr0MKJsQeSIEj'
+
+# github auth credentials
+SOCIAL_AUTH_GITHUB_KEY = '7a3fb8d954ba5e417e01'
+SOCIAL_AUTH_GITHUB_SECRET = '738ed4841847dfc9ee449894643b4aec2e1a1432'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
