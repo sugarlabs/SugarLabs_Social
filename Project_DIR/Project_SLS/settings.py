@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'feed',
     'post',
     'blog',
-    'projects'
+    'projects',
+    'social_django'
     # 'custom_tags'
 ]
 
@@ -79,6 +80,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', 
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -129,6 +132,23 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Authentication Backends for different social platform
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.open_id.OpenIdAuth', #for google authentication
+    'social_core.backends.google.GoogleOpenId', #for google authentication
+    'social_core.backends.google.GoogleOAuth2', #for google authentication
+    'social_core.backends.github.GithubOAuth2', #for github authentication
+    'social_core.backends.facebook.FacebookOAuth2', #for facebook authentication
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+# google auth credentials
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='988351086799-nqbscdiddo197rahloh6pftvdshshkr3.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='HKPd7FOBPryXr0MKJsQeSIEj'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -155,6 +175,7 @@ MEDIA_URL = '/media/'
 
 #if user is not logged in and try to access the restricted material he or she
 #will be redirected to login page
-LOGIN_URL ='/login/'
+LOGIN_URL ='login'
+LOGIN_REDIRECT_URL = '/feed/'
 
 SITE_ID=1
