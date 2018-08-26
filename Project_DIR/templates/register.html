@@ -6,6 +6,32 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-sm-12 col-md-6 regi-right">
+              <div class="container.fluid">
+                  <div class="row justify-content-center">
+                      <div class="col-6">
+                          <span style="font-family: 'Montserrat', sans-serif">REGISTER USING<span>
+                      </div>
+                    </div>
+                    <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <a class="btn" style="background-color:#c32f10; color:white;" href="{% url 'social:begin' 'google-oauth2' %}">Google+</a>
+                      </div>
+                      <div class="col-4">
+                        <a class="btn " style="background-color:#333; color:white" href="{% url 'social:begin' 'github' %}">GitHub</a><br>
+                      </div>
+                      <div class="col-4">
+                        <a class="btn" style="background-color:#4078c0; color:white" href="{% url 'social:begin' 'facebook' %}">Facebook</a>
+                      </div>
+                </div>
+                <hr>
+                <div class="row justify-content-center">
+                  <div class="col-2">
+                      <span style="font-family: 'Montserrat', sans-serif">OR</span>
+                  </div>
+                </div>
+              </div>
+                <hr>
             {% if registered %}
               successfully registered
               <a class="btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/login/" role="button" style="margin-left:30px">Login</a>
