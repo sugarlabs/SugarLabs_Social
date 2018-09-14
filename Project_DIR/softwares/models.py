@@ -7,21 +7,23 @@ class Software(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=500)
     image = models.ImageField(upload_to='images', blank=True, null=True)
-    WEB = 'web'
-    SUGAR = 'sugar'
-    UBUNTU = 'ubuntu'
-    FEDORA = 'fedora'
-    WINDOWS = 'windows'
-    CHROME = 'chrome'
-    ANDROID = 'android'
+    WEB = 'WEB'
+    SUGAR = 'SUGAR'
+    UBUNTU = 'UBUNTU'
+    FEDORA = 'FEDORA'
+    WINDOWS = 'WINDOWS'
+    CHROME = 'CHROME'
+    ANDROID = 'ANDROID'
+    NA = 'NA'
     categories_choices = (
-        (WEB = 'web')
-        (SUGAR = 'sugar')
-        (UBUNTU = 'ubuntu')
-        (FEDORA = 'fedora')
-        (WINDOWS = 'windows')
-        (CHROME = 'chrome')
-        (ANDROID = 'android')
+        (WEB , 'web'),
+        (SUGAR , 'sugar'),
+        (UBUNTU , 'ubuntu'),
+        (FEDORA , 'fedora'),
+        (WINDOWS , 'windows'),
+        (CHROME , 'chrome'),
+        (ANDROID , 'android'),
+        (NA, 'NA')
     )
     
     category = models.CharField(

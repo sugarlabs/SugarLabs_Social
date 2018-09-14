@@ -3,4 +3,5 @@ from softwares import views
 
 urlpatterns = [
     url(r'^$', views.softwares, name = 'softwares'),
+    
 ]
