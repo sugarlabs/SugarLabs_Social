@@ -17,3 +17,11 @@ def softwares(request):
 
     return render(request, 'core/softwares.html', context_dict)
 
+def software(request, software_url):
+    username = request.user.username
+    software = get_object_or_404(Software, title=software_url.replace('_', ' '))
+    context_dict = {'username':username,
+                'software':software
+    }
+
+    return render(request, 'core/software.html', context_dict)
