@@ -23,6 +23,7 @@ from post import views as post_views
 from blog import views
 from projects import views
 from softwares import views
+from accounts import views
 
 admin.autodiscover()
 
@@ -41,6 +42,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^projects/', include('projects.urls')),
     url(r'^softwares/', include('softwares.urls')),
+    url(r'^accounts/', include('accounts.urls')),
     url(r'^comments/', include('django_comments.urls')),
     # url(r'^post/comments/', include('django_comments.urls')),
 
