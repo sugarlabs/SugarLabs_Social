@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 
 # Create your models here.
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, related_name='user')
+    user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
     photo = models.ImageField(verbose_name=('Profile Picture'),
                             upload_to='images', blank=True, null=True)
     bio = models.TextField(default='', blank=True)
@@ -14,7 +14,7 @@ class UserProfile(models.Model):
     organization = models.CharField(max_length=200, default='', blank=True)
     github_handle = models.URLField(default='', blank=True, null=True)
     linkedin_handle = models.URLField(default='', blank=True, null=True)
-    irc_name = models.charField(max_length=100, default='', blank=True, null=True)
+    irc_name = models.CharField(max_length=100, default='', blank=True, null=True)
     MALE = 'MALE'
     FEMALE = 'FEMALE'
     sex_choices = (
@@ -22,6 +22,9 @@ class UserProfile(models.Model):
         (FEMALE, 'Female')
     )
     sex = models.CharField(max_length=100, choices= sex_choices, default='', blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
 
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]
