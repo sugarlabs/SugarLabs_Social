@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserProfile
@@ -31,7 +31,7 @@ def edit_user(request):
                 if formset.is_valid():
                     created_user.save()
                     formset.save()
-                    return HttpResponseRedirect('/accounts/profile/')
+                    return HttpResponseRedirect('/feed/')
 
         return render(request, "core/account_update.html",{
             "noodle":pk,
@@ -43,4 +43,12 @@ def edit_user(request):
 
 
 
-# Create your views here.
+# User Profile view
+def profile(request, username=None):
+    user = get_object_or_404(User, username=username)
+    profile_obj = user
+    context_dict = {
+        'profile':profile_obj,
+    }
+
+    return render(request, 'core/userprofile.html', context_dict)
