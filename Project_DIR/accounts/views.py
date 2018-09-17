@@ -63,7 +63,7 @@ def profile(request, username=None):
         post.url = post.title.replace(' ', '_')
 
     for blog in user_blogs:
-        blog.url = post.title.replace(' ', '_')
+        blog.url = blog.title.replace(' ', '_')
 
     return render(request, 'core/userprofile.html', context_dict)
 
