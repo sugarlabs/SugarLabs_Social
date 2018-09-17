@@ -43,7 +43,7 @@
                           <p style="font-size:10px !important">{{blog.get_content_as_markdown|truncatechars:20}}</p>
                         </div> -->
                         <div class="col-12" style="text-align:right">
-                          <span>{{blog.author}}</span>|
+                          <span><a href="/accounts/{{blog.author}}">{{blog.author}}</a></span>|
                           <span style="font-size:10px">{{blog.created_at|naturaltime}}</span>
                         </div>
                       </div>
