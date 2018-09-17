@@ -12,14 +12,141 @@
   <span>
 </a>
 {% endblock add_btn %}
-
 {% block content %}
-<h1>{{user.username}}</h1>
-<h1>{{profile.bio}}</h1>
-<h1>{{profile.website}}</h1>
+<div class="container">
+    <div class="row m-sm-5">
+        <div class="col-12 col-md-3">
+            <div class="profile-image-container" style="background-image:url(/media/{{profile.photo}})">
+            </div>
+        </div>
+        <div class="col-12 col-md-9 mt-3 ">
+            <span class="badge badge-info">{{user.username}}</span>
+
+            <!-- <h6><strong>{{posts.count}}</strong> posts</h6>  -->
+            <h3><b>{{user.first_name}} {{user.last_name}}</b></h3>
+            <p>{{profile.bio}}</p>
+            <a class="badge badge-warning" href="{{profile.website}}">{{profile.website}}</a>
+        </div>
+    </div>
+    <div class="row mx-sm-5 my-3">
+        <div class="col-4 col-sm-4">
+                <div class="card" style="background-color:#17a2b8; color:white">
+                    <h1><strong>{{posts.count}}</strong></h1><span>Posts</span>
+                </div>
+        </div>
+        <div class="col-4 col-sm-4">
+                <div class="card" style="background-color:#17a2b8; color:white">
+                    <h1><strong>{{blogs.count}}</strong></h1><span>Blogs</span>
+                </div>
+        </div>
+        <div class="col-4 col-sm-4">
+                <div class="card" style="background-color:#17a2b8; color:white">
+                    <h1><strong>{{blogs.count}}</strong></h1><span>Comments </span>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row m-sm-5 justify-content-center">
+        <div class="col-12 col-sm-6">
+            
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-posts" role="tab" aria-controls="pills-home" aria-selected="true">Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-blogs" role="tab" aria-controls="pills-profile" aria-selected="false">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-comments" role="tab" aria-controls="pills-contact" aria-selected="false">Comments</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
+                        <div class="row">
+                        <div class="card-columns">
+                                {% for post in posts %}
+                    
+                                <div class="card feed_post_card">
+                    
+                                    {% if post.author %}
+                                      <h5 class="card-title" style="font-weight:700; font-size:15px">{{post.author}}</h5>
+                    
+                                    {% else %}
+                                      <h5 class="card-title">Anonymous</h5>
+                                    {% endif %}
+                                    <p class="card-subtitle mb-4 text-muted" style="font-size:12px;">{{post.created_at|naturaltime}}</p>
+                                    <hr>
+                    
+                                  {% if post.image %}
+                                  <img class="card-img-top" src="/media/{{post.image}}">
+                                  {% else %}
+                                    <img class="card-img-top" src="https://i.imgur.com/YBtD4km.png"/>
+                                  {% endif %}
+                                  <a href="/post/{{ post.url }}" style="font-size:18px; "><strong><u>{{post.title}}</u></strong></a>        
+                    
+                                    <p class="tags my-3">
+                                      Tags:
+                                      {% for tag in post.tags.all %}
+                                          <a class="badge badge-secondary" href="{% url "post_by_tag" tag.slug %}" style="color:#fff !important">{{ tag.name }}</a>
+                                          {% if not forloop.last %},{% endif %}
+                                      {% endfor %}
+                    
+                                    </p>
+                                </div>
+                    
+                              {% endfor %}
+                              </div>
+                        </div>
+                        </div>
+                <div class="tab-pane fade" id="pills-blogs" role="tabpanel" aria-labelledby="pills-blogs-tab">
+                        <div class="row justify-content-center">
+                        {% for blog in blogs %}
+
+                        <div class="col-12 col-sm-7 my-3 ">
+                          <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
+                            <div class="row">
+                              <div class="col-12 col-sm-3" >
+                                {% if blog.image %}
+                                    <img style="height:25vh; width:10vw; object-fit:cover" src="/media/{{blog.image}}"  alt="">
+            
+                                  {% else %}
+                                    <a href="https://imgur.com/YBtD4km"><img  src="https://i.imgur.com/YBtD4km.png" style="height:25vh; width:10vw; object-fit:cover"/></a>
+                                {% endif %}
+                              </div>
+                              <div class="col-12 col-sm-9">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-12 pt-3">
+                                      <a href="/blog/{{ blog.url }}"><h5><strong>{{blog.title}}</strong></h5></a>
+                                    </div>
+                                    <!-- <div class="col-12 my-1">
+                                      <p style="font-size:10px !important">{{blog.get_content_as_markdown|truncatechars:20}}</p>
+                                    </div> -->
+                                    <div class="col-12" style="text-align:right">
+                                      <span>{{blog.author}}</span>|
+                                      <span style="font-size:10px">{{blog.created_at|naturaltime}}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                      {% endfor %}
+                </div>
+                </div>
+                <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">{{software.contribution_guide}}</div>
+            </div>
+    </div>
+</div>
 
 
-{% for post in posts %}
-<p>{{post.title}}</p>
-{% endfor %}
+
 {% endblock %}
+
+

@@ -50,11 +50,20 @@ def profile(request, username=None):
     user = get_object_or_404(User, username=username)
     profile = user.user
     user_posts = Post.objects.filter(author_id=user.user.user_id)
+    user_blogs = Blog.objects.filter(author_id=user.user.user_id)
     context_dict = {
         'profile':profile,
         'user':user,
-        'posts':user_posts
+        'posts':user_posts,
+        'blogs':user_blogs
     }
+
+
+    for post in user_posts:
+        post.url = post.title.replace(' ', '_')
+
+    for blog in user_blogs:
+        blog.url = post.title.replace(' ', '_')
 
     return render(request, 'core/userprofile.html', context_dict)
 
