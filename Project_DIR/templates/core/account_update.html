@@ -1,18 +1,28 @@
 {% extends 'core/core_base.html' %}
 {% load crispy_forms_tags %}
 
+{% block add_btn %}
+<a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/post/add_post/" >
+  <i class="fas fa-plus my-2 icon" style="font-size:1.5rem">
+  </i>
+  <span style="font-size:1rem;" class="mx-4">
+    Add Post
+  <span>
+</a>
+{% endblock add_btn %}
+
 {% block content %}
-<div class="col s12 m8 offset-m2">
-    <div class="card">
-      <div class="card-content">
-      <h2 class="flow-text">Update your information</h2>
-        <form action="." method="POST" class="padding">
-          {% csrf_token %} {{ noodle_form.as_p }}
+<div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 " style="">
+            <div class="add">
+      <h2 class="flow-text">Update your profile</h2>
+        <form action="/accounts/update/" method="POST" class="padding" enctype="multipart/form-data" >
+          {% csrf_token %} {{ noodle_form|crispy }}
           <div class="divider"></div>
           {{ formset.management_form }}
-              {{ formset.as_p }}
-          <button type="submit" class="btn-floating btn-large waves-light waves-effect"><i class="large material-icons">done</i></button>
-          <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="btn-floating waves-effect waves-light red"><i class="material-icons">history</i></a>
+              {{ formset|crispy }}
+          <input class="btn btn-outline-dark my-2 my-sm-0 btn-nav" type="submit" name="submit" value="submit"/>
 
       </form>
       </div>

@@ -20,12 +20,17 @@
             </div>
         </div>
         <div class="col-12 col-md-9 mt-3 ">
-            <span class="badge badge-info">{{user.username}}</span>
-
+            <span class="badge badge-info ">{{user_profile.username}}</span>
+        <br>
             <!-- <h6><strong>{{posts.count}}</strong> posts</h6>  -->
-            <h3><b>{{user.first_name}} {{user.last_name}}</b></h3>
+            <span class="mr-5" style="font-size:28px"><b>{{user_profile.first_name}} {{user_profile.last_name}}</b></span>
+            {% if user.is_authenticated %}
+                {% ifequal user.get_username user_profile.username %}
+                    <a href="/accounts/update/"class="btn btn-warning">edit profile</a>
+                {% endifequal %}
+            {% endif %}
             <p>{{profile.bio}}</p>
-            <a class="badge badge-warning" href="{{profile.website}}">{{profile.website}}</a>
+            <a class="badge badge-info" href="{{profile.website}}">{{profile.website}}</a>
         </div>
     </div>
     <div class="row mx-sm-5 my-3">

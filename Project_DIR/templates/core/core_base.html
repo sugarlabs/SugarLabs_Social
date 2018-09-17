@@ -36,7 +36,7 @@
 
                   <div class="dropdown mr-2">
                     <a class="dropdown-toggle dropdown-toggle-split"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="my-2 my-sm-0 mx-2">{{username}}</span>
+                      <a href="/accounts/{{user.get_username}}/"class="my-2 my-sm-0 mx-2">{{user.get_username}}</a>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right mt-sm-3" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item btn btn-outline-dark my-2 my-sm-0 btn-nav" href="/logout/" role="button">Logout</a>

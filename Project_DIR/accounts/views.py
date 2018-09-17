@@ -47,15 +47,15 @@ def edit_user(request):
 
 # User Profile view
 def profile(request, username=None):
-    user = get_object_or_404(User, username=username)
-    profile = user.user
-    user_posts = Post.objects.filter(author_id=user.user.user_id)
-    user_blogs = Blog.objects.filter(author_id=user.user.user_id)
+    user_profile = get_object_or_404(User, username=username)
+    profile = user_profile.user
+    user_posts = Post.objects.filter(author_id=user_profile.user.user_id)
+    user_blogs = Blog.objects.filter(author_id=user_profile.user.user_id)
     context_dict = {
         'profile':profile,
-        'user':user,
+        'user_profile':user_profile,
         'posts':user_posts,
-        'blogs':user_blogs
+        'blogs':user_blogs,
     }
 
 
