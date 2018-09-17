@@ -15,5 +15,11 @@
 
 {% block content %}
 <h1>{{user.username}}</h1>
-<h1>{{user.user.bio}}</h1>
+<h1>{{profile.bio}}</h1>
+<h1>{{profile.website}}</h1>
+
+
+{% for post in posts %}
+<p>{{post.title}}</p>
+{% endfor %}
 {% endblock %}

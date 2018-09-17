@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserProfile
 from .forms import UserForm
+from blog.models import Blog
+from post.models import Post
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
 
@@ -46,9 +48,14 @@ def edit_user(request):
 # User Profile view
 def profile(request, username=None):
     user = get_object_or_404(User, username=username)
-    profile_obj = user
+    profile = user.user
+    user_posts = Post.objects.filter(author_id=user.user.user_id)
     context_dict = {
-        'profile':profile_obj,
+        'profile':profile,
+        'user':user,
+        'posts':user_posts
     }
 
     return render(request, 'core/userprofile.html', context_dict)
+
+
