@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'projects',
     'softwares',
     'social_django',
-    'accounts'
+    'accounts',
+    'activities'
     # 'custom_tags'
 ]
 

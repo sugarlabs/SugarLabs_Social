@@ -1,0 +1,50 @@
+{% extends 'core/core_base.html' %}
+{% load humanize %}
+
+{% block add_btn %}
+<a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/post/add_post/" >
+  <i class="fas fa-plus my-2 icon" style="font-size:1.5rem">
+  </i>
+  <span style="font-size:1rem;" class="mx-4">
+    Add Post
+  <span>
+</a>
+{% endblock add_btn %}
+
+{% block content %}
+  <div class="container m-md-5">
+      <div class="row">
+          <div class="col-12 col-md-9">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Browse Activities</h3>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    {% for activity in activities %}
+                    <div class="col-6 col-sm-3">
+                        <div class="card p-1">
+                            <img class="card-img-top"style="object-fit:cover" src="/media/{{activity.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h6 class="card-title"><a href="/activities/{{activity.url}}">{{activity.title}}</a></h6>
+                                <span class="badge badge-success"><a href="/accounts/{{activity.author}}">by:{{activity.author}}</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3">
+              {% for category in categories %}
+                <p>category.choices</p>
+              {% endfor %}
+          </div>
+      </div>
+
+ 
+    </div>
+  </div>
+{% endblock %}
