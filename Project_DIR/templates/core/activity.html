@@ -1,0 +1,81 @@
+{% extends 'core/core_base.html' %}
+{% load humanize %}
+{% load threadedcomments_tags %}
+{% load i18n %}
+
+{% block extra_media %}
+<style>
+  #id_comment{
+    height:80px;
+  }
+</style>
+{% endblock extra_media %}
+
+{% block add_btn %}
+<a class="btn btn-outline-dark my-4 mx-3 btn-nav btn-add-left-nav" href="/post/add_post/" >
+  <i class="fas fa-plus my-2 icon" style="font-size:1.5rem">
+  </i>
+  <span style="font-size:1rem;" class="mx-4">
+    Add Post
+  <span>
+</a>
+{% endblock add_btn %}
+
+{% block content %}
+<div class="container my-3 mx-3 project-container">
+  <div class="row">
+    <div class="col-12 col-sm-3">
+      <div class="my-4 mx-1">
+        <img style="height:12rem; width:12rem; object-fit:cover" src="/media/{{activity.image}}" alt="Card image cap">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="my-4 mx-1">
+        <h3>{{activity.title}}</h3>
+        <p>{{activity.subtitle}}</p>
+      </div>
+    </div>
+    <div class="col-12 col-sm-3">
+      <div class="my-4 mx-1">
+        <a class="btn btn-info" href="{{activity.download_link}}" role="button">Download</a>
+      </div>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-12">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-home" aria-selected="true">Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-setup" role="tab" aria-controls="pills-profile" aria-selected="false">Setup Guide</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contribution" role="tab" aria-controls="pills-contact" aria-selected="false">Contribution Guide</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-discuss" role="tab" aria-controls="pills-contact" aria-selected="false">Discussion</a>
+      </li>
+    </ul>
+      </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-12">
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">{{activity.info}}</div>
+        <div class="tab-pane fade" id="pills-setup" role="tabpanel" aria-labelledby="pills-setup-tab"></div>
+        <div class="tab-pane fade" id="pills-contribution" role="tabpanel" aria-labelledby="pills-contribution-tab"></div>
+        <div class="tab-pane fade" id="pills-discuss" role="tabpanel" aria-labelledby="pills-discuss-tab">
+          <div class="card">
+              {% render_comment_form for activity %}
+          </div>
+          <div class="card my-2">
+              {% render_comment_list for activity %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
