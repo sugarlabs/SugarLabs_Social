@@ -23,6 +23,7 @@
                 </div>
 
                 <div class="row my-3">
+                    
                     {% for activity in activities %}
                     <div class="col-6 col-sm-3">
                         <div class="card p-1">
@@ -38,8 +39,10 @@
             </div>
           </div>
           <div class="col-12 col-md-3">
-              {% for category in categories %}
-                <p>category.choices</p>
+              {% for activity in activities %}
+                {% for category in activity.categories.all %}
+                    {{categories.name}}
+                {% endfor %}
               {% endfor %}
           </div>
       </div>
