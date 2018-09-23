@@ -8,6 +8,7 @@ from .models import Blog
 from .forms import BlogForm
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
+from urllib.parse import urlsplit
 
 
 def blog(request):
@@ -95,4 +96,15 @@ def delete_blog(request, blog_url):
     else:
         raise PermissionDenied
     return render(request, 'core/delete.html', {'object':blog})
+
+#comment redirect after posting
+def comment_posted( request ):
+    referer = request.META.get('HTTP_REFERER', None)
+    if referer is None:
+        pass
+    try:
+        redirect_to = urlsplit(referer, 'http', False)[2]
+    except IndexError:
+       pass
+    return HttpResponseRedirect(redirect_to)
 

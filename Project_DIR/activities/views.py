@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template import Context, loader
 from django.urls import reverse
 from .models import Activities
+from urllib.parse import urlsplit
 
 
 def activities(request):
@@ -25,3 +26,16 @@ def activity(request, activity_url):
     }
 
     return render(request, 'core/activity.html', context_dict)
+
+
+#comment redirect after posting
+def comment_posted( request ):
+    referer = request.META.get('HTTP_REFERER', None)
+    if referer is None:
+        pass
+    try:
+        redirect_to = urlsplit(referer, 'http', False)[2]
+    except IndexError:
+       pass
+    return HttpResponseRedirect(redirect_to)
+

@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
 from taggit.models import Tag
+from urllib.parse import urlsplit
 
 
 def post(request, tag_slug=None):
@@ -101,3 +102,15 @@ def delete_post(request, post_url):
     else:
         raise PermissionDenied
     return render(request, 'core/delete.html', {'object':post})
+
+
+#comment redirect after posting
+def comment_posted( request ):
+    referer = request.META.get('HTTP_REFERER', None)
+    if referer is None:
+        pass
+    try:
+        redirect_to = urlsplit(referer, 'http', False)[2]
+    except IndexError:
+       pass
+    return HttpResponseRedirect(redirect_to)
