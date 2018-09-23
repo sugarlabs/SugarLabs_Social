@@ -1,10 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import Context, loader
+from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Blog
 from .forms import BlogForm
+from django.forms.models import inlineformset_factory
+from django.core.exceptions import PermissionDenied
 
 
 def blog(request):
@@ -53,3 +56,40 @@ def add_blog(request):
 #
 # def post_delete(request):
 #     return HttpResponse("<h1>create</h1>")
+
+@login_required
+def edit_blog(request, blog_url):
+    pk = request.user.pk
+    user = User.objects.get(pk=pk)
+    blog = get_object_or_404(Blog, title=blog_url.replace('_', ' '))
+
+
+    if request.user.is_authenticated and blog.author == request.user.username:
+        if request.method == 'POST':
+            form = BlogForm(request.POST, request.FILES, instance =blog)
+
+            if form.is_valid():
+                instance = form.save(commit = False)
+                instance.author = request.user
+                instance.save()
+                return HttpResponseRedirect('/blog/{blog_url}'.format(blog_url=blog.title.replace(' ', '_')))
+            else:
+                print(form.errors)
+        else:
+            form = BlogForm()
+
+    else:
+        raise PermissionDenied
+
+    return render(request, 'core/edit_profile.html', {'form':form})
+
+@login_required
+def delete_blog(request, blog_url):
+    pk = request.user.pk
+    user = User.objects.get(pk=pk)
+    blog= get_object_or_404(Blog, pk=pk)    
+    if request.method=='POST':
+        blog.delete()
+        return redirect(blog)
+    return render(request, 'core/userprofile.html', {'object':blog})
+

@@ -125,15 +125,22 @@
                               <div class="col-12 col-sm-9">
                                 <div class="container">
                                   <div class="row">
-                                    <div class="col-12 pt-3">
+                                    <div class="col-7 pt-3">
                                       <a href="/blog/{{ blog.url }}"><h5><strong>{{blog.title}}</strong></h5></a>
+                                      <span>{{blog.author}}</span>|
+                                      <span style="font-size:10px">{{blog.created_at|naturaltime}}</span>
+                                    </div>
+                                    <div class="col-5 pt-3">
+                                        {% ifequal user.get_username user_profile.username %}
+                                        <a href="/blog/{{ blog.url }}/edit/"  class="btn btn-primary">edit</a> 
+                                        <a href="/blog/{{ blog.url }}/edit/"  class="btn btn-danger">delete</a> 
+                                        {% endifequal %}
                                     </div>
                                     <!-- <div class="col-12 my-1">
                                       <p style="font-size:10px !important">{{blog.get_content_as_markdown|truncatechars:20}}</p>
                                     </div> -->
                                     <div class="col-12" style="text-align:right">
-                                      <span>{{blog.author}}</span>|
-                                      <span style="font-size:10px">{{blog.created_at|naturaltime}}</span>
+
                                     </div>
                                   </div>
                                 </div>
