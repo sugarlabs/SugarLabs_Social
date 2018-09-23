@@ -5,6 +5,7 @@ from .models import UserProfile
 from .forms import UserForm
 from blog.models import Blog
 from post.models import Post
+from activities.models import Activities
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
 
@@ -51,11 +52,13 @@ def profile(request, username=None):
     profile = user_profile.user
     user_posts = Post.objects.filter(author_id=user_profile.user.user_id)
     user_blogs = Blog.objects.filter(author_id=user_profile.user.user_id)
+    user_activity = Activities.objects.filter(author_id=user_profile.user.user_id)
     context_dict = {
         'profile':profile,
         'user_profile':user_profile,
         'posts':user_posts,
         'blogs':user_blogs,
+        'activities':user_activity
     }
 
 
@@ -64,6 +67,9 @@ def profile(request, username=None):
 
     for blog in user_blogs:
         blog.url = blog.title.replace(' ', '_')
+
+    for activity in user_activity:
+        activity.url = activity.title.replace(' ', '_')
 
     return render(request, 'core/userprofile.html', context_dict)
 

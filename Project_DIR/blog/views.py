@@ -64,7 +64,7 @@ def edit_blog(request, blog_url):
     blog = get_object_or_404(Blog, title=blog_url.replace('_', ' '))
 
 
-    if request.user.is_authenticated and blog.author == request.user.username:
+    if request.user.is_authenticated and blog.author.id == user.id:
         if request.method == 'POST':
             form = BlogForm(request.POST, request.FILES, instance =blog)
 
@@ -81,15 +81,18 @@ def edit_blog(request, blog_url):
     else:
         raise PermissionDenied
 
-    return render(request, 'core/edit_profile.html', {'form':form})
+    return render(request, 'core/edit.html', {'form':form})
 
 @login_required
 def delete_blog(request, blog_url):
     pk = request.user.pk
     user = User.objects.get(pk=pk)
-    blog= get_object_or_404(Blog, pk=pk)    
-    if request.method=='POST':
-        blog.delete()
-        return redirect(blog)
-    return render(request, 'core/userprofile.html', {'object':blog})
+    blog= get_object_or_404(Blog, title = blog_url.replace('_', ' '))
+    if request.user.is_authenticated and blog.author.id == user.id:
+        if request.method=='POST':
+            blog.delete()
+            return redirect('/accounts/{username}'.format(username = user.username))
+    else:
+        raise PermissionDenied
+    return render(request, 'core/delete.html', {'object':blog})
 

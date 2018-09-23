@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import Context, loader
+from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Post
@@ -62,3 +63,41 @@ def add_post(request):
 #
 # def post_delete(request):
 #     return HttpResponse("<h1>create</h1>")
+@login_required
+def edit_post(request, post_url):
+    pk = request.user.pk
+    user = User.objects.get(pk=pk)
+    post = get_object_or_404(Post, title=post_url.replace('_', ' '))
+
+
+    if request.user.is_authenticated and post.author.id == user.id:
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES, instance =post)
+
+            if form.is_valid():
+                instance = form.save(commit = False)
+                instance.author = request.user
+                instance.save()
+                return HttpResponseRedirect('/post/{post_url}'.format(post_url=post.title.replace(' ', '_')))
+            else:
+                print(form.errors)
+        else:
+            form = PostForm()
+
+    else:
+        raise PermissionDenied
+
+    return render(request, 'core/edit.html', {'form':form})
+
+@login_required
+def delete_post(request, post_url):
+    pk = request.user.pk
+    user = User.objects.get(pk=pk)
+    post= get_object_or_404(Post, title = post_url.replace('_', ' '))
+    if request.user.is_authenticated and post.author.id == user.id:
+        if request.method=='POST':
+            post.delete()
+            return redirect('/accounts/{username}'.format(username = user.username))
+    else:
+        raise PermissionDenied
+    return render(request, 'core/delete.html', {'object':post})

@@ -46,7 +46,7 @@
         </div>
         <div class="col-4 col-sm-4">
                 <div class="card" style="background-color:#17a2b8; color:white">
-                    <h1><strong>{{blogs.count}}</strong></h1><span>Comments </span>
+                    <h1><strong>{{activities.count}}</strong></h1><span>Activities </span>
                 </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-blogs" role="tab" aria-controls="pills-profile" aria-selected="false">Blogs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-comments" role="tab" aria-controls="pills-contact" aria-selected="false">Comments</a>
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-activities" role="tab" aria-controls="pills-contact" aria-selected="false">Activities(ASLO)</a>
                 </li>
             </ul>
         </div>
@@ -78,7 +78,14 @@
                                 <div class="card feed_post_card">
                     
                                     {% if post.author %}
-                                      <h5 class="card-title" style="font-weight:700; font-size:15px">{{post.author}}</h5>
+                                      <h5 class="card-title" style="font-weight:700; font-size:15px">{{post.author}}
+                                      
+                                            {% ifequal user.get_username user_profile.username %}
+                                            <a href="/post/{{ post.url }}/edit/"  class="btn btn-primary ml-3">edit</a> 
+                                            <a href="/post/{{ post.url }}/delete/"  class="btn btn-danger">delete</a> 
+                                            {% endifequal %}
+                                        </h5>
+                                      
                     
                                     {% else %}
                                       <h5 class="card-title">Anonymous</h5>
@@ -110,6 +117,7 @@
                 <div class="tab-pane fade" id="pills-blogs" role="tabpanel" aria-labelledby="pills-blogs-tab">
                         <div class="row justify-content-center">
                         {% for blog in blogs %}
+                        {% csrf_token %}
 
                         <div class="col-12 col-sm-7 my-3 ">
                           <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
@@ -133,7 +141,7 @@
                                     <div class="col-5 pt-3">
                                         {% ifequal user.get_username user_profile.username %}
                                         <a href="/blog/{{ blog.url }}/edit/"  class="btn btn-primary">edit</a> 
-                                        <a href="/blog/{{ blog.url }}/edit/"  class="btn btn-danger">delete</a> 
+                                        <a href="/blog/{{ blog.url }}/delete/"  class="btn btn-danger">delete</a> 
                                         {% endifequal %}
                                     </div>
                                     <!-- <div class="col-12 my-1">
@@ -152,7 +160,22 @@
                       {% endfor %}
                 </div>
                 </div>
-                <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-comments-tab">{{software.contribution_guide}}</div>
+                <div class="tab-pane fade" id="pills-activities" role="tabpanel" aria-labelledby="pills-comments-tab">
+                    <div class="row">
+                        {% for activity in activities %}
+                        {% csrf_token %}
+                        <div class="col-6 col-sm-3">
+                                <div class="card p-1">
+                                    <img class="card-img-top"style="object-fit:cover" src="/media/{{activity.image}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><a href="/activities/{{activity.url}}">{{activity.title}}</a></h6>
+                                        <span class="badge badge-success"><a href="/accounts/{{activity.author}}">by:{{activity.author}}</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
     </div>
 </div>

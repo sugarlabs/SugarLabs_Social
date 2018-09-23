@@ -1,0 +1,26 @@
+{% extends 'core/core_base.html' %}
+{% load crispy_forms_tags %}
+{% block extra_media %}
+<script>
+  var simplemde = new SimpleMDE();
+  </script>
+{% endblock extra_media %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-11 " style="">
+      <div class="add">
+      <form id="blog_form" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+
+        {{ form|crispy }}
+        <input class="btn btn-outline-dark my-2 my-sm-0 btn-nav" type="submit" name="submit" value="submit"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

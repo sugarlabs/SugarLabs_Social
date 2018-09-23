@@ -1,0 +1,23 @@
+{% extends 'core/core_base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-11 " style="">
+      <div class="add">
+          <div class="my-5">
+              <span>
+                  <h3>Are you sure want to delete this?</h3>
+              </span>
+          </div>
+        <form  method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
