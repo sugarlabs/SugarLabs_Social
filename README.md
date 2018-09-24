@@ -37,8 +37,8 @@ A Platform for sugar users/instructors/developers/teachers/parents to explore/di
 
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Installing_Prerequisites](#installingprerequisites)
-    - [Setting_up_postgresql_database](#settinguppostgresqldatabase)
+    - [Installing Prerequisites](#installing-prerequisites)
+    - [Setting up postgresql database](#setting-up-postgresql-database)
     - [Creating Virtual Enviornment](#creating-virtual-enviornment)
     - [Installing and Running the project](#installing-and-running-the-project)
 - [:boom: BOOM!](#boom-boom)
@@ -70,14 +70,14 @@ $ git clone https://github.com/avinashbharti97/SugarLabs_Social.git
 - postgresql
 ```
 
-## Installing_Prerequisites
+## Installing Prerequisites
 
 ```
 $ sudo apt-get update
 $ sudo apt-get install python3 python3-pip virtualenvwrapper python-dev libpq-dev postgresql postgresql-contrib
 ```
 
-## Setting_up_postgresql_database
+## Setting up postgresql database
 >keep the value of database name, username and password same,
 >else change the config respectively of settings.py in Project_SLS dir.
 
