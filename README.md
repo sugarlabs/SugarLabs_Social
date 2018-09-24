@@ -35,18 +35,47 @@ A Platform for sugar users/instructors/developers/teachers/parents to explore/di
 ## Table of Contents
 
 
+- [Contributing](#contributing)
+  - [What to contribute](#what-to-contribute)
+  - [How to contribute](#how-to-contribute)
+- [Contribution guideline](#contribution-guideline)
 - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installing Prerequisites](#installing-prerequisites)
-    - [Setting up postgresql database](#setting-up-postgresql-database)
-    - [Creating Virtual Enviornment](#creating-virtual-enviornment)
-    - [Installing and Running the project](#installing-and-running-the-project)
-- [:boom: BOOM!](#boom-boom)
+  - [Prerequisites](#prerequisites)
+  - [Installing Prerequisites](#installing-prerequisites)
+  - [Setting up postgresql database](#setting-up-postgresql-database)
+  - [Creating Virtual Enviornment](#creating-virtual-enviornment)
+  - [Installing and Running the project](#installing-and-running-the-project)
+- [Codebase](#codebase)
 
 
 
+# Contributing
+We expect contributors to abide by our underlying [code of conduct](https://github.com/sugarlabs/sugar-docs/blob/master/src/CODE_OF_CONDUCT.md). All conversations and discussions on GitHub (issues, pull requests) and across Sugar Labs Social must be respectful and harassment-free.
+
+## What to contribute
+
+**Refactoring** code, e.g. improving the code without modifying the behavior is an area that can probably be done based on intuition and may not require much communication to be merged.
+
+**Fixing bugs** is the most sensitive area to work . bugs are magnets for other bugs.
+
+**Improving UI/UX** i.e Responsiveness across diffrent width of devices.
+
+**Building features** is the area which will require the most communication and/or negotiation. Every feature is subjective and open for debate.
+
+**Documentation** is also a important area to work on.
+
+## How to contribute
+
+1. Fork the project & clone locally. Follow the initial setup [here](#getting-started) .
+2. Create a branch, naming it either a feature or bug: `git checkout -b feature/that-new-feature` or `bug/fixing-that-bug`
+3.  Code and commit your changes. Bonus points if you write a [good commit message](https://chris.beams.io/posts/git-commit/): `git commit -m 'Add some feature'`
+4.  Push to the branch: `git push origin feature/that-new-feature`
+5.  [Create a pull request](#create-a-pull-request) for your branch 🎉
 
 
+# Contribution guideline
+
+-----
 
 
 
@@ -158,4 +187,7 @@ Quit the server with CONTROL-C.
 ```
 
 Redirect at the link shown.
-# :boom: BOOM!
+
+
+# Codebase
+

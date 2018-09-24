@@ -33,6 +33,7 @@
               {% csrf_token %}
                 <i class="fas fa-user-circle icon" style="font-size:4rem; color:#262626"></i>
                   <div class="dropdown mr-2">
+                    <img src="{{ user.get_profile.photo }}"/>
                     <a class="dropdown-toggle dropdown-toggle-split"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <a href="/accounts/{{user.get_username}}/"class="my-2 my-sm-0 mx-2">{{user.get_username}}</a>
                     </a>
