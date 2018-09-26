@@ -203,6 +203,8 @@ Populate the data using admin panel
 $ python manage.py createsuperuser
 ```
 > Fill the data asked in prompt
+
+
 > run the server again
 ```
 $ python manage.py runserver
