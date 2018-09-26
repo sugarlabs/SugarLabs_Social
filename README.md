@@ -94,9 +94,12 @@ $ git clone https://github.com/avinashbharti97/SugarLabs_Social.git
 
 ```
 - python3
-- pip3
+- python3-pip
 - virtualenvwrapper
 - postgresql
+- postgresql-contrib
+- python-dev
+- libpq-dev
 ```
 
 ## Installing Prerequisites
@@ -156,14 +159,14 @@ you should see (env) in the begining, something like this.
 
 ## Installing and Running the project
 
-
+```
+$ cd Project_DIR
+```
 
 ```
 $ pip install -r requirements.txt
 ```
-```
-$ cd Project_DIR
-```
+
 ```
 $ python manage.py makemigrations
 ```
