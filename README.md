@@ -45,6 +45,8 @@ A Platform for sugar users/instructors/developers/teachers/parents to explore/di
   - [Setting up postgresql database](#setting-up-postgresql-database)
   - [Creating Virtual Enviornment](#creating-virtual-enviornment)
   - [Installing and Running the project](#installing-and-running-the-project)
+  - [populating the data](#populating-the-data)
+    - [creating superuser(admin)](#creating-superuseradmin)
 - [Codebase](#codebase)
 
 
@@ -190,6 +192,30 @@ Quit the server with CONTROL-C.
 ```
 
 Redirect at the link shown.
+
+> use ctrl+c to stop the server and execute other command whenever needed.
+
+## populating the data
+Populate the data using admin panel
+
+### creating superuser(admin)
+```
+$ python manage.py createsuperuser
+```
+> Fill the data asked in prompt
+> run the server again
+```
+$ python manage.py runserver
+```
+> redirect to http://127.0.0.1:8000/admin.
+
+> Login using the data you provided during creation of super user.
+
+
+> populate some data of custom tags, Projects, softwares, activities.
+
+
+> other data can be populated using the main app itself.
 
 
 # Codebase
