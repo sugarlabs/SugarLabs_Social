@@ -114,7 +114,10 @@ $ sudo apt-get install python3 python3-pip virtualenvwrapper python-dev libpq-de
 ## Setting up postgresql database
 >keep the value of database name, username and password same,
 >else change the config respectively of settings.py in Project_SLS dir.
-
+### Run the Postgresql Service
+```
+$ sudo service postgresql start
+```
 ```
 $ sudo su - postgres
 ```
