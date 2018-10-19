@@ -118,6 +118,7 @@ $ sudo apt-get install python3 python3-pip virtualenvwrapper python-dev libpq-de
 ```
 $ sudo service postgresql start
 ```
+### Creating Database
 ```
 $ sudo su - postgres
 ```
