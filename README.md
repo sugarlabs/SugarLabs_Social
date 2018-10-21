@@ -122,6 +122,10 @@ $ sudo service postgresql start
 ```
 $ sudo su - postgres
 ```
+or
+```
+$ sudo -u postgres -i
+```
 > You should now be in a shell session for the postgres user. Log into a Postgres session by typing:
 ```
 psql
