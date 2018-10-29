@@ -341,4 +341,7 @@ label[for=id_honeypot],
     border-radius: 0;
     border-width:1px;
 }
+.zoomimg {
+  cursor: pointer;
+}
 
