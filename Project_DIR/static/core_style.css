@@ -20,7 +20,7 @@
     font-family: 'Lato', sans-serif;
 
 */
-@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway:300,400|Roboto|Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway:300,400|Roboto|Roboto+Condensed|Varela+Round');
 
 body{
   background-color: #f8f9fa;
@@ -344,4 +344,11 @@ label[for=id_honeypot],
 .zoomimg {
   cursor: pointer;
 }
-
+.blog-body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13pt;
+    line-height: 140%;
+}
+.blog-title {
+  font-family: 'Varela Round', sans-serif;
+}
