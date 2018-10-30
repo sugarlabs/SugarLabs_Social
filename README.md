@@ -87,7 +87,7 @@ We expect contributors to abide by our underlying [code of conduct](https://gith
 
 * clone the project in your local computer
 ```
-$ git clone https://github.com/avinashbharti97/SugarLabs_Social.git
+$ git clone https://github.com/sugarlabs/social.git
 ```
 
 ## Prerequisites
