@@ -27,7 +27,7 @@
                     {% for activity in activities %}
                     <div class="col-6 col-sm-3">
                         <div class="card p-1">
-                            <img class="card-img-top"style="object-fit:cover" src="/media/{{activity.image}}" alt="Card image cap">
+                            <img class="card-img-top zoomimg"style="object-fit:cover" src="/media/{{activity.image}}" alt="Card image cap">
                             <div class="card-body">
                                 <h6 class="card-title"><a href="/activities/{{activity.url}}">{{activity.title}}</a></h6>
                                 <span class="badge badge-success"><a href="/accounts/{{activity.author}}">by:{{activity.author}}</a></span>

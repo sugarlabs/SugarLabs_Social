@@ -46,7 +46,7 @@
       <h1 style="font-family: 'Abril Fatface', cursive;">{{single_blog.title}}</h1>
       <hr>
       {% if single_blog.image %}
-        <img class="img-fluid" src="/media/{{single_blog.image}}">
+        <img class="img-fluid zoomimg" src="/media/{{single_blog.image}}">
       {% endif %}
       <div>
         {{single_blog.get_content_as_markdown}}
