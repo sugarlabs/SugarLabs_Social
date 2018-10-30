@@ -13,7 +13,7 @@ $(document).ready(function () {
     }).parent().addClass('left-nav-active');
 //any images with the zoomimg will be zoomed in using viewer js when clicked
     $( ".zoomimg" ).click(function(e) {
-        var viewer = new Viewer(e.toElement, {
+        var viewer = new Viewer($(this).get(0), {
           button: true,
           transition: true,
           backdrop: true,
@@ -31,7 +31,7 @@ $(document).ready(function () {
       });
       $( ".pzoomimg" ).click(function(e) {
         var img = new Image();
-        img.src = (e.toElement.style.backgroundImage.split("\""))[1];
+        img.src = ($(this).get(0).style.backgroundImage.split("\""))[1];
         console.log(img.src);
         var viewer = new Viewer(img, {
           button: true,
