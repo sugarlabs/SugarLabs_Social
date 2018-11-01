@@ -43,12 +43,12 @@
       {% endif %}
       <p class="card-subtitle mb-4 text-muted" style="font-size:12px;">{{single_blog.created_at|naturaltime}}</p>
 
-      <h1 style="font-family: 'Abril Fatface', cursive;">{{single_blog.title}}</h1>
+      <h1 class="blog-title">{{single_blog.title}}</h1>
       <hr>
       {% if single_blog.image %}
         <img class="img-fluid zoomimg" src="/media/{{single_blog.image}}">
       {% endif %}
-      <div>
+      <div class="blog-body">
         {{single_blog.get_content_as_markdown}}
       </div>
     </div>
