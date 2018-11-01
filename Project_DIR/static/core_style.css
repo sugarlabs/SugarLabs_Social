@@ -50,6 +50,7 @@ a:hover, a:active{
 .add{
   background-color:white;
   margin:10px;
+  padding:30px;
   border: 1px solid rgba(0,0,0,.15) !important;
 }
 
@@ -60,7 +61,6 @@ a:hover, a:active{
   border-top:none !important;
   border-left:none !important;
   border-right:none !important;
-  z-index: 1;
 }
 
 .dropdown-menu{
@@ -82,21 +82,7 @@ a:hover, a:active{
   border: 1px solid rgba(0,0,0,.15) !important;
   border-top:none !important;
   border-left:none !important;
-}
-.btn-add-left-nav span {
-  display: none;
-}
-@media (min-width: 961px) {
-  .left-nav {
-    position: fixed;
-    transition: margin 100ms;
-  }
-  .btn-add-left-nav span {
-    display: inline-block;
-  }
-  .content {
-    margin-left: 15%;
-  }
+
 }
 
 /* .fas, .far{
@@ -205,10 +191,7 @@ a:link.left-nav-active{
     .xo-logo{
       visibility: hidden;
     }
-    .left-nav-btn-div{
-      background-color:#fff !important;
-      border:none;
-    }
+
     .left-nav{
       /* visibility: hidden; */
     }
@@ -221,7 +204,7 @@ a:link.left-nav-active{
     .left-nav-btn{
       padding-top:0 !important;
       padding-bottom:0 !important;
-      padding-left:5% !important;
+      padding-left:0 !important;
       padding-right:0 !important;
     }
     .blog_card_margin{
@@ -357,5 +340,8 @@ label[for=id_honeypot],
     border-right: none;
     border-radius: 0;
     border-width:1px;
+}
+.zoomimg {
+  cursor: pointer;
 }
 
