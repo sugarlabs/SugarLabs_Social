@@ -82,7 +82,21 @@ a:hover, a:active{
   border: 1px solid rgba(0,0,0,.15) !important;
   border-top:none !important;
   border-left:none !important;
-
+}
+.btn-add-left-nav span {
+  display: none;
+}
+@media (min-width: 961px) {
+  .left-nav {
+    position: fixed;
+    transition: margin 100ms;
+  }
+  .btn-add-left-nav span {
+    display: inline-block;
+  }
+  .content {
+    margin-left: 15%;
+  }
 }
 
 /* .fas, .far{
