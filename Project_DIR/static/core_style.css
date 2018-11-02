@@ -104,6 +104,7 @@ a:hover, a:active{
 @media (max-width: 961px) {
   .left-nav{
     margin-left: 4%;
+    z-index: 1;
   }
 }
 @media (min-width: 961px) {
