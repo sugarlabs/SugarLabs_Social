@@ -97,7 +97,6 @@ a:hover, a:active{
 }
 .content {
   margin-top: 15%;
-  z-index: -1;
 }
 .dropdown-menu {
   z-index: 3;
