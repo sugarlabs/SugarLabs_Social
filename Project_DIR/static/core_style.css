@@ -89,15 +89,18 @@ a:hover, a:active{
   border-left:none !important;
   /*margin-left: 3%;*/
   position: fixed;
-  z-index: 1;
-  margin-top: 100px;
+  margin-top: 80px;
   display: inline-block;
 }
-.btn-add-left-nav span {
-  display: none;
+.userbar {
+  padding-top: 10px;
 }
 .content {
   margin-top: 15%;
+  z-index: -1;
+}
+.dropdown-menu {
+  z-index: 3;
 }
 @media (max-width: 961px) {
   .left-nav{
@@ -110,17 +113,14 @@ a:hover, a:active{
   }
   .left-nav {
     transition: margin 100ms;
-    margin-top: 3%;
+    margin-top: 2%;
     padding-top: 3%;
   }
   .navbar {
     position: fixed;
     transition: margin 100ms;
-    z-index: 2;
+    /* z-index: 2; */
     width: 100%;
-  }
-  .btn-add-left-nav span {
-    display: inline-block;
   }
   .content {
     margin-left: 15%;
