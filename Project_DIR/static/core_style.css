@@ -106,8 +106,18 @@ a:hover, a:active{
     margin-left: 4%;
     z-index: 1;
   }
+  .card-img {
+    width:100%;
+  }
+}
+.card-img {
+  height:25vh;
+  object-fit:cover
 }
 @media (min-width: 961px) {
+  .card-img {
+    width:10vw;
+  }
   .collapse:not(.show) {
     display: inline-block;
   }
