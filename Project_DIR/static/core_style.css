@@ -90,7 +90,7 @@ a:hover, a:active{
   border-left:none !important;
   /*margin-left: 3%;*/
   position: fixed;
-  margin-top: 80px;
+  margin-top: 100px;
   display: inline-block;
 }
 .userbar {
@@ -109,6 +109,9 @@ a:hover, a:active{
   }
   .card-img {
     width:100%;
+  }
+  .navbar {
+    padding-bottom: 20px;
   }
 }
 .card-img {
