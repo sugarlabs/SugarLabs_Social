@@ -102,16 +102,18 @@ a:hover, a:active{
 .dropdown-menu {
   z-index: 3;
 }
+.nav-mobi {
+  text-align: center;
+}
 @media (max-width: 961px) {
   .left-nav{
-    margin-left: 4%;
-    z-index: 1;
+    display:none;
   }
   .card-img {
     width:100%;
   }
-  .navbar {
-    padding-bottom: 20px;
+  .content {
+    margin-top: 12vh;
   }
 }
 .card-img {
@@ -127,6 +129,9 @@ a:hover, a:active{
   }
 }
   @media (min-width: 961px) {
+    .nav-mobi {
+      display: none;
+    }
   .featured-tags {
     position: fixed;
     right: 5%;
