@@ -115,6 +115,10 @@ a:hover, a:active{
   object-fit:cover
 }
 @media (min-width: 961px) {
+  .featured-tags {
+    position: fixed;
+    right: 5%;
+  }
   .card-img {
     width:10vw;
   }
@@ -133,8 +137,11 @@ a:hover, a:active{
     width: 100%;
   }
   .content {
-    margin-left: 15%;
-    margin-top: 5%;
+    margin-left: 20%;
+    margin-top: 7%;
+  }
+  .posts-content {
+    margin-left: 1%;
   }
 }
 

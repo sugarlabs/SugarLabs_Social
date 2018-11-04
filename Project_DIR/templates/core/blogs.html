@@ -15,15 +15,15 @@
 {% block content %}
 
 <div class="container.fluid ">
-  <div class="row mx-5 blog_card_margin">
-    <div class="col-12 col-sm-10">
-      <div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-9">
+      <div class="container.fluid">
         <div class="row">
           <!-- <div class="card-columns"> -->
           {% for blog in latest_blogs %}
 
             <div class="col-12 col-sm-9 my-3 ">
-              <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
+              <div class="container.fluid blog-card card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
                 <div class="row">
                   <div class="col-12 col-sm-3" >
                     {% if blog.image %}
