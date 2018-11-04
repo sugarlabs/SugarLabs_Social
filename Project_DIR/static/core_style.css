@@ -79,6 +79,7 @@ a:hover, a:active{
 .btn-add-left-nav{
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302),0 1px 3px 1px rgba(60,64,67,0.149);
   border-color:#fff;
+  overflow-x: hidden;
 }
 
 .left-nav{
@@ -129,6 +130,7 @@ a:hover, a:active{
     transition: margin 100ms;
     margin-top: 2%;
     padding-top: 3%;
+    width: 25vh;
   }
   .navbar {
     position: fixed;
@@ -137,8 +139,8 @@ a:hover, a:active{
     width: 100%;
   }
   .content {
-    margin-left: 20%;
-    margin-top: 7%;
+    margin-left: 25vh;
+    margin-top: 15vh;
   }
   .posts-content {
     margin-left: 1%;
