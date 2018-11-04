@@ -115,7 +115,15 @@ a:hover, a:active{
   height:25vh;
   object-fit:cover
 }
-@media (min-width: 961px) {
+@media (max-height: 900px) and (min-width: 961px) {
+  .left-nav {
+    width: 40vh !important;
+  }
+  .content {
+    margin-left: 35vh !important;
+  }
+}
+  @media (min-width: 961px) {
   .featured-tags {
     position: fixed;
     right: 5%;
