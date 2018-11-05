@@ -83,7 +83,7 @@ a:hover, a:active{
 }
 
 .left-nav{
-  height:100vh;
+  height:1000vh;
   background-color:white;
   border: 1px solid rgba(0,0,0,.15) !important;
   border-top:none !important;
@@ -114,7 +114,7 @@ a:hover, a:active{
     width:100%;
   }
   .content {
-    margin-top: 12vh;
+    margin-top: 3vh;
   }
 }
 .card-img {
@@ -145,8 +145,7 @@ a:hover, a:active{
   }
   .left-nav {
     transition: margin 100ms;
-    margin-top: -1%;
-    padding-top: 3%;
+    margin-top: -2%;
     width: 25vh;
   }
   .navbar {
@@ -157,7 +156,7 @@ a:hover, a:active{
   }
   .content {
     margin-left: 25vh;
-    margin-top: 15vh;
+    margin-top: 3vh;
   }
   .posts-content {
     margin-left: 1%;
