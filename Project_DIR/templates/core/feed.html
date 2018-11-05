@@ -15,15 +15,15 @@
 {% block content %}
 
 
-  <div class="container.fluid">
-    <div class="row">
-      <div class="col-12 col-sm-9">
-        <div class="container.fluid">
-          <div class="row justify-content-center">
+<div class="container.fluid">
+  <div class="row">
+    <div class="col-12 col-sm-9 offset-md-1">
+      <div class="container.fluid">
+        <div class="row justify-content-center">
             {% for feed in latest_feed %}
 
             {% if feed|get_class == 'Post' %}
-            <div class="col-11 col-sm-8">
+            <div class="col-12 col-sm-9 my-3 ">
 
               <div class="card feed_post_card my-2">
 
@@ -37,7 +37,7 @@
                   <hr>
 
                 {% if feed.image %}
-                <img class="card-img-top zoomimg" src="/media/{{feed.image}}">
+                <img class="card-img-top zoomimg" style="" src="/media/{{feed.image}}">
 
                 {% else %}
                   <img class="card-img-top" src="https://i.imgur.com/YBtD4km.png"/>
@@ -58,15 +58,15 @@
             {% else %}
 
 
-                        <div class="col-11 col-sm-8 my-3 ">
+                        <div class="col-12 col-sm-9 my-3 ">
                           <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
                             <div class="row">
                               <div class="col-12 col-sm-3" >
                                 {% if feed.image %}
-                                    <img class="zoomimg" style="height:25vh; width:10vw; object-fit:cover" src="/media/{{feed.image}}"  alt="">
+                                    <img class="zoomimg card-img" src="/media/{{feed.image}}"  alt="">
 
                                   {% else %}
-                                    <a href="https://imgur.com/YBtD4km"><img  src="https://i.imgur.com/YBtD4km.png" style="height:25vh; width:10vw; object-fit:cover"/></a>
+                                    <a href="https://imgur.com/YBtD4km"><img class="card-img" src="https://i.imgur.com/YBtD4km.png"/></a>
                                 {% endif %}
                               </div>
                               <div class="col-12 col-sm-9">
@@ -92,7 +92,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-3 mt-3">
+      <div class="col-sm-2 mt-2 featured-tags">
         <h6><i class="fas fa-tags" style="font-size:15px !important"></i> Featured Tags</h6>
         <hr>
         <div class="container">

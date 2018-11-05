@@ -25,6 +25,7 @@
 body{
   background-color: #f8f9fa;
   color:#262626;
+  width: 100%;
   overflow-x: hidden;
   /* font-family: 'Montserrat', sans-serif; */
   text-decoration:none;
@@ -61,6 +62,10 @@ a:hover, a:active{
   border-top:none !important;
   border-left:none !important;
   border-right:none !important;
+  position: fixed;
+    transition: margin 100ms;
+    z-index: 1;
+    width: 100%;
 }
 
 .dropdown-menu{
@@ -74,15 +79,88 @@ a:hover, a:active{
 .btn-add-left-nav{
   box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302),0 1px 3px 1px rgba(60,64,67,0.149);
   border-color:#fff;
+  overflow-x: hidden;
 }
 
 .left-nav{
-  height:100vh;
+  height:1000vh;
   background-color:white;
   border: 1px solid rgba(0,0,0,.15) !important;
   border-top:none !important;
   border-left:none !important;
-
+  /*margin-left: 3%;*/
+  position: fixed;
+  margin-top: 100px;
+  display: inline-block;
+  
+}
+.userbar {
+  padding-top: 10px;
+}
+.content {
+  margin-top: 15%;
+}
+.dropdown-menu {
+  z-index: 3;
+}
+.nav-mobi {
+  text-align: center;
+}
+@media (max-width: 961px) {
+  .left-nav{
+    display:none;
+  }
+  .card-img {
+    width:100%;
+  }
+  .content {
+    margin-top: 3vh;
+  }
+}
+.card-img {
+  height:25vh;
+  object-fit:cover
+}
+@media (max-height: 900px) and (min-width: 961px) {
+  .left-nav {
+    width: 40vh !important;
+  }
+  .content {
+    margin-left: 35vh !important;
+  }
+}
+  @media (min-width: 961px) {
+    .nav-mobi {
+      display: none;
+    }
+  .featured-tags {
+    position: fixed;
+    right: 2%;
+  }
+  .card-img {
+    width:10vw;
+  }
+  .collapse:not(.show) {
+    display: inline-block;
+  }
+  .left-nav {
+    transition: margin 100ms;
+    margin-top: -2%;
+    width: 25vh;
+  }
+  .navbar {
+    position: fixed;
+    transition: margin 100ms;
+    /* z-index: 2; */
+    width: 100%;
+  }
+  .content {
+    margin-left: 25vh;
+    margin-top: 3vh;
+  }
+  .posts-content {
+    margin-left: 1%;
+  }
 }
 
 /* .fas, .far{
