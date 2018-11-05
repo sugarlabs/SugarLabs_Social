@@ -92,6 +92,7 @@ a:hover, a:active{
   position: fixed;
   margin-top: 100px;
   display: inline-block;
+  
 }
 .userbar {
   padding-top: 10px;
@@ -144,7 +145,7 @@ a:hover, a:active{
   }
   .left-nav {
     transition: margin 100ms;
-    margin-top: 2%;
+    margin-top: -1%;
     padding-top: 3%;
     width: 25vh;
   }
