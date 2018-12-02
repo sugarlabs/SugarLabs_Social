@@ -20,7 +20,7 @@
     font-family: 'Lato', sans-serif;
 
 */
-@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway:300,400|Roboto|Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway:300,400|Roboto|Roboto+Condensed|Merriweather:400,900|Open+Sans+Condensed:300');
 
 body{
   background-color: #f8f9fa;
@@ -422,7 +422,21 @@ label[for=id_honeypot],
 .zoomimg {
   cursor: pointer;
 }
-.infinite-more-link {
-  background: #ccc;
-  padding: 50px;
+.blog-body {
+    margin-top: 4%;
+    font-family: 'Merriweather', serif;
+    font-size: 1.2em;
+    line-height: 200%;
+}
+.blog-title {
+  font-family: 'Merriweather', serif;
+  font-size: 3em;
+  font-weight: 900;
+}
+.blog-body::first-letter {
+  font-weight: 900;
+  font-size: 3em;
+}
+a:hover {
+  text-decoration: none;
 }
