@@ -20,10 +20,11 @@
     <div class="col-12 col-sm-9 offset-md-1">
       <div class="container.fluid">
         <div class="row justify-content-center">
+            <div class="infinite-container">
             {% for feed in latest_feed %}
 
             {% if feed|get_class == 'Post' %}
-            <div class="col-12 col-sm-9 my-3 ">
+            <div class="col-12 col-sm-9 my-3 infinite-item">
 
               <div class="card feed_post_card my-2">
 
@@ -53,12 +54,12 @@
                     {% endfor %}
 
                   </p>
-              </div>
+            </div>
             </div>
             {% else %}
 
 
-                        <div class="col-12 col-sm-9 my-3 ">
+                        <div class="col-12 col-sm-9 my-3 infinite-item">
                           <div class="container.fluid blog-card" style="background-color:#fff; border: 1px solid rgba(0,0,0,.125) !important; background-clip: border-box !important;">
                             <div class="row">
                               <div class="col-12 col-sm-3" >
@@ -90,6 +91,10 @@
 
             {% endfor %}
           </div>
+          {% if latest_feed.has_next %}
+          <a class="infinite-more-link col-md-2 col-md-offset-4" href="?page={{ latest_feed.next_page_number }}">More</a>
+        {% endif %}
+          </div>
         </div>
       </div>
       <div class="col-sm-2 mt-2 featured-tags">
@@ -111,4 +116,9 @@
       </div>
     </div>
   </div>
+  <script>
+      var infinite = new Waypoint.Infinite({
+        element: $('.infinite-container')[0]
+      });
+    </script>
 {% endblock %}

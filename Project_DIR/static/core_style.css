@@ -422,4 +422,7 @@ label[for=id_honeypot],
 .zoomimg {
   cursor: pointer;
 }
-
+.infinite-more-link {
+  background: #ccc;
+  padding: 50px;
+}
